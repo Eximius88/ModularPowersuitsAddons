@@ -6,7 +6,7 @@
 !/.gitattributes
 !/Changelog.txt
 !/mods
-!/build.xml
+!/README.md
 .gradle/
 build/
 debug_client/
