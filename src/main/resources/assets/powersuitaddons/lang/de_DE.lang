@@ -1,0 +1,27 @@
+Made by users: Dongonzales and Vexatos
+Last edited on 6/26/13 2:12PM EST
+
+item.powerArmorComponent.componentSolarPanel.name = Solarzelle
+item.powerArmorComponent.componentMagnet.name = Magnet
+item.powerArmorComponent.componentComputerChip.name = Mikroprozessor
+
+module.portableCraftingTable.name = Vor-Ort-Assembler
+module.kineticGenerator.name = Kinetischer Generator
+module.solarGenerator.name = Photovoltaikgenerator
+module.thermalGenerator.name = Thermischer Generator
+module.autoFeeder.name = Auto-Ernährungeinheit
+module.magnet.name = Magnet
+module.oreScanner.name = Erzscanner
+module.leafBlower.name = Laubgebläse
+module.mobRepulsor.name = Mob-Repulsor
+module.flintAndSteel.name = Feuerzeug
+module.clock.name = Uhr
+module.compass.name = Kompass
+module.lightningSummoner.name = Blitz-o-Mat
+module.waterTank.name = Wassertank
+module.euReader.name = EU-Lesegerät
+module.treetap.name = Kautschukhahn
+module.teMultimeter.name = TE-Multimeter
+module.torchPlacer.name = Fackel-o-Mat
+module.appengWireless.name = Kabelloses ME-Terminal
+module.bucket.name = Eimer

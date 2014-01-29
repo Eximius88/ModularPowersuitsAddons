@@ -1,0 +1,32 @@
+[
+	{
+		"ingredients" : [
+			[ { "unlocalizedName" : "block.glass" }, { "unlocalizedName" : "block.glass" }, { "unlocalizedName" : "block.glass" } ],
+			[ { "oredictName" : "conduitEnergyHardened" }, { "unlocalizedName" : "block.blockLapis" }, { "oredictName" : "conduitEnergyHardened" ],
+			[ { "unlocalizedName" : "item.ingotIron" }, { "unlocalizedName" : "item.ingotIron" } ]
+		],
+		"result" : {
+			"oredictName" : "componentSolarPanel"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "unlocalizedName" : "item.ingotIron" }, { "oredictName" : "powerCoilGold" }, { "unlocalizedName" : "item.ingotIron" } ],
+			[ { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" }, { "oredictName" : "componentSolenoid" } ],
+			[ { "unlocalizedName" : "item.ingotIron" }, { "oredictName" : "powerCoilGold" }, { "unlocalizedName" : "item.ingotIron" } ]
+		],
+		"result" : {
+			"oredictName" : "componentMagnet"
+		}
+	},
+	{
+		"ingredients" : [
+			[ { "unlocalizedName" : "item.ingotIron" }, { "oredictName" : "componentSolenoid" }, { "unlocalizedName" : "item.ingotIron" } ],
+			[ { "oredictName" : "powerCoilGold" }, { "oredictName" : "multimeter" }, { "oredictName" : "powerCoilSilver" } ],
+			[ { "unlocalizedName" : "item.ingotIron" }, { "oredictName" : "powerCoilElectrum" }, { "unlocalizedName" : "item.ingotIron" } ]
+		],
+		"result" : {
+			"oredictName" : "componentComputerChip"
+		}
+	}
+]
