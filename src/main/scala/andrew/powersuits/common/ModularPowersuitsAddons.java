@@ -41,7 +41,7 @@ public class ModularPowersuitsAddons {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
             INSTANCE = this;
-            File oldConfig = event.getSuggestedConfigurationFile();
+        File oldConfig = event.getSuggestedConfigurationFile();
         File newConfig = new File(event.getModConfigurationDirectory() + "/machinemuse/andrew/PowersuitsAddons.cfg");
         if (oldConfig.exists()) {
             try {
