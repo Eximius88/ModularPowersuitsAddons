@@ -1,6 +1,7 @@
 package andrew.powersuits.modules;
 
 
+import andrew.powersuits.common.AddonLogger;
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.ModuleManager;
 import net.machinemuse.api.moduletrigger.IRightClickModule;
@@ -10,7 +11,9 @@ import net.machinemuse.utils.ElectricItemUtils;
 import net.machinemuse.utils.MuseCommonStrings;
 import net.machinemuse.utils.MuseItemUtils;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockClay;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockSnow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,6 +31,7 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
     private static final String LEAF_BLOWER_ENERGY_CONSUMPTION = "Energy Consumption";
     private static final String PLANT_RADIUS = "Plant Radius";
     private static final String LEAF_RADIUS = "Leaf Radius";
+    private static final String SNOW_RADIUS = "Snow Radius";
 
     public LeafBlowerModule(List<IModularItem> validItems) {
         super(validItems);
@@ -36,8 +40,10 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
         addBaseProperty(LEAF_BLOWER_ENERGY_CONSUMPTION, 100, "J");
         addBaseProperty(PLANT_RADIUS, 1, "m");
         addBaseProperty(LEAF_RADIUS, 1, "m");
+        addBaseProperty(SNOW_RADIUS, 1, "m");
         addIntTradeoffProperty(PLANT_RADIUS, PLANT_RADIUS, 8, "m", 1, 0);
         addIntTradeoffProperty(LEAF_RADIUS, LEAF_RADIUS, 8, "m", 1, 0);
+        addIntTradeoffProperty(SNOW_RADIUS, SNOW_RADIUS, 5, "m", 1, 0);
     }
 
     public PowerModuleBase addIntTradeoffProperty(String tradeoffName, String propertyName, double multiplier, String unit, int roundTo, int offset) {
@@ -78,6 +84,7 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
         Block block = Block.blocksList[blockID];
         int plant = (int) ModuleManager.computeModularProperty(itemStack, PLANT_RADIUS);
         int leaf = (int) ModuleManager.computeModularProperty(itemStack, LEAF_RADIUS);
+        int snow = (int) ModuleManager.computeModularProperty(itemStack, SNOW_RADIUS);
         int totalEnergyDrain = 0;
 
         // Leaves
@@ -100,6 +107,25 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
             }
         }
 
+        //Snow
+        for (int i = -snow; i < snow; i++) {
+            for (int j = -snow; j < snow; j++) {
+                for (int k = -snow; k < snow; k++) {
+                    int id = world.getBlockId(x + i, y + j, z + k);
+                    int meta = world.getBlockMetadata(x + i, y + j, z + k);
+                    Block snowBlock = Block.blocksList[id];
+                    if (snowBlock instanceof BlockSnow) {
+                         snowBlock.harvestBlock(world, player, x + i, y + j, z + k, meta);
+                         totalEnergyDrain += ModuleManager.computeModularProperty(itemStack, LEAF_BLOWER_ENERGY_CONSUMPTION);
+                         world.setBlockToAir(x + i, y + j, z + k);
+
+                    }
+                }
+            }
+        }
+        ElectricItemUtils.drainPlayerEnergy(player, totalEnergyDrain);
+
+
         // Plants
         for (int i = -plant; i < plant; i++) {
             for (int j = -plant; j < plant; j++) {
@@ -109,9 +135,6 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
                     Block tempBlock = Block.blocksList[id];
                     if (tempBlock != null && tempBlock instanceof BlockFlower) {
                         if (tempBlock.canHarvestBlock(player, meta)) {
-                            //AddonLogger.logDebug("X: "+Math.abs(x+i)+" Y: "+Math.abs(y+j)+" Z: "+Math.abs(z+k));
-                            //AddonLogger.logDebug("Block ID: "+id);
-                            //AddonLogger.logDebug("Block Meta: "+meta);
                             tempBlock.harvestBlock(world, player, x + i, y + j, z + k, meta);
                             totalEnergyDrain += ModuleManager.computeModularProperty(itemStack, LEAF_BLOWER_ENERGY_CONSUMPTION);
                             world.setBlockToAir(x + i, y + j, z + k);

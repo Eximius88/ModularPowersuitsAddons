@@ -24,16 +24,16 @@ import java.util.List;
 public class NitrogenCoolingSystem extends PowerModuleBase implements IPlayerTickModule, IToggleableModule {
     public static final String MODULE_NITROGEN_COOLING_SYSTEM = "Liquid Nitrogen Cooling System";
     public static final String COOLING_BONUS = "Cooling Bonus";
-    public static final String ENERGY = "Cooling System Energy Consumption";
+    public static final String ENERGY = "Energy Consumption";
 
     public NitrogenCoolingSystem(List<IModularItem>validItems){
         super(validItems);
-        addInstallCost(new ItemStack(Item.netherStar, 1));
+        //addInstallCost(new ItemStack(Item.netherStar, 1));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.liquidNitrogen, 1));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.rubberHose, 2));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.computerChip, 2));
-        addTradeoffProperty("Power", COOLING_BONUS, 6, "%");
+        addTradeoffProperty("Power", COOLING_BONUS, 7, "%");
         addTradeoffProperty("Power", ENERGY, 16, "J/t");
 
 
