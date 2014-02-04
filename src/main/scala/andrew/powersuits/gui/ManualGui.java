@@ -1,4 +1,4 @@
-package andrew.powersuits.client;
+package andrew.powersuits.gui;
 
 
 

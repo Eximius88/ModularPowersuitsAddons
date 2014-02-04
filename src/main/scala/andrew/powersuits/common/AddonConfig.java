@@ -82,6 +82,7 @@ public class AddonConfig extends Config {
         //addModule(new CoalGenerator(TORSOONLY));
         addModule(new NitrogenCoolingSystem(TORSOONLY));
         addModule(new MechanicalAssistance(TORSOONLY));
+        addModule(new TestTeleportModule(TOOLONLY));
 
         if (Loader.isModLoaded("AppliedEnergistics")){
             addModule(new AppEngWirelessModule(TOOLONLY));
