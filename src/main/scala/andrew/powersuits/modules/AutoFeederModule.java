@@ -64,7 +64,7 @@ public class AutoFeederModule extends PowerModuleBase implements IToggleableModu
     public void onPlayerTickActive(EntityPlayer player, ItemStack item) {
         if (AddonConfig.useOldAutoFeeder) {
             IInventory inv = player.inventory;
-            double foodLevel = (double)AddonUtils.getFoodLevel(item);
+            double foodLevel = (double) AddonUtils.getFoodLevel(item);
             double saturationLevel = AddonUtils.getSaturationLevel(item);
             double efficiency = ModuleManager.computeModularProperty(item, EATING_EFFICIENCY);
             for (int i = 0; i < inv.getSizeInventory(); i++) {
@@ -89,15 +89,13 @@ public class AutoFeederModule extends PowerModuleBase implements IToggleableModu
                 if (AddonUtils.getSaturationLevel(item) >= 1.0F) {
                     foodStats.addStats(foodNeeded, 1.0F);
                     AddonUtils.setSaturationLevel(item, AddonUtils.getSaturationLevel(item) - 1.0F);
-                }
-                else {
+                } else {
                     foodStats.addStats(foodNeeded, 0.0F);
                 }
                 AddonUtils.setFoodLevel(item, AddonUtils.getFoodLevel(item) - foodNeeded);
                 ElectricItemUtils.drainPlayerEnergy(player, eatingEnergyConsumption * foodNeeded);
             }
-        }
-        else {
+        } else {
             double totalEnergy = ElectricItemUtils.getPlayerEnergy(player);
             IInventory inv = player.inventory;
             double foodLevel = (double) AddonUtils.getFoodLevel(item);

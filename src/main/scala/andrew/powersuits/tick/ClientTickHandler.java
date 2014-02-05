@@ -34,7 +34,7 @@ public class ClientTickHandler implements ITickHandler {
     public void tickStart(EnumSet<TickType> type, Object... tickData) {
         Minecraft mc = Minecraft.getMinecraft();
 
-        if(type.contains(TickType.CLIENT) && mc.theWorld != null) {
+        if (type.contains(TickType.CLIENT) && mc.theWorld != null) {
 
             EntityClientPlayerMP player = mc.thePlayer;
             ItemStack torso = player.getCurrentArmor(2);
@@ -51,10 +51,10 @@ public class ClientTickHandler implements ITickHandler {
 
     public void addSMPMagneticItem(int i, World world) {
         Entity entity = world.getEntityByID(i);
-        if(entity == null || !(entity instanceof EntityItem)) {
+        if (entity == null || !(entity instanceof EntityItem)) {
             return;
         }
-        SMPmagneticItems.add((EntityItem)entity);
+        SMPmagneticItems.add((EntityItem) entity);
         if (AddonConfig.useDebugMode) {
             AddonLogger.logDebug("Recieved magnet mode packet.");
         }
@@ -70,71 +70,69 @@ public class ClientTickHandler implements ITickHandler {
         double speedy = 0.07;
 
         List<EntityItem> items;
-        if(world.isRemote) {
+        if (world.isRemote) {
             items = SMPmagneticItems;
-        }
-
-        else {
+        } else {
             items = world.getEntitiesWithinAABB(EntityItem.class, player.boundingBox.expand(distancexz, distancey, distancexz));
         }
 
-        for(Iterator<EntityItem> iterator = items.iterator(); iterator.hasNext();) {
+        for (Iterator<EntityItem> iterator = items.iterator(); iterator.hasNext(); ) {
             EntityItem item = iterator.next();
 
-            if(item.delayBeforeCanPickup > 0) {
+            if (item.delayBeforeCanPickup > 0) {
                 continue;
             }
 
-            if(item.isDead && world.isRemote) {
+            if (item.isDead && world.isRemote) {
                 iterator.remove();
             }
 
-            if(!AddonUtils.canItemFitInInventory(player, item.getEntityItem())) {
+            if (!AddonUtils.canItemFitInInventory(player, item.getEntityItem())) {
                 continue;
             }
 
             double dx = player.posX - item.posX;
             double dy = player.posY + player.getEyeHeight() - item.posY;
             double dz = player.posZ - item.posZ;
-            double absxz = Math.sqrt(dx*dx+dz*dz);
+            double absxz = Math.sqrt(dx * dx + dz * dz);
             double absy = Math.abs(dy);
 
-            if(absxz > distancexz) {
+            if (absxz > distancexz) {
                 continue;
             }
 
-            if(absxz > 1) {
+            if (absxz > 1) {
                 dx /= absxz;
                 dz /= absxz;
             }
 
-            if(absy > 1) {
+            if (absy > 1) {
                 dy /= absy;
             }
 
-            double vx = item.motionX + speedxz*dx;
-            double vy = item.motionY + speedy*dy;
-            double vz = item.motionZ + speedxz*dz;
+            double vx = item.motionX + speedxz * dx;
+            double vy = item.motionY + speedy * dy;
+            double vz = item.motionZ + speedxz * dz;
 
-            double absvxz = Math.sqrt(vx*vx+vz*vz);
+            double absvxz = Math.sqrt(vx * vx + vz * vz);
             double absvy = Math.abs(vy);
 
             double rationspeedxz = absvxz / maxspeedxz;
-            if(rationspeedxz > 1) {
-                vx/=rationspeedxz;
-                vz/=rationspeedxz;
+            if (rationspeedxz > 1) {
+                vx /= rationspeedxz;
+                vz /= rationspeedxz;
             }
 
             double rationspeedy = absvy / maxspeedy;
-            if(rationspeedy > 1) {
-                vy/=rationspeedy;
+            if (rationspeedy > 1) {
+                vy /= rationspeedy;
             }
 
-            if(absvxz < 0.2 && absxz < 0.2 && world.isRemote) {
+            if (absvxz < 0.2 && absxz < 0.2 && world.isRemote) {
                 item.setDead();
             }
             if (AddonConfig.useDebugMode) {
-                AddonLogger.logDebug("Set velocity "+vx+" "+vy+" "+vz+".");
+                AddonLogger.logDebug("Set velocity " + vx + " " + vy + " " + vz + ".");
             }
             item.setVelocity(vx, vy, vz);
         }

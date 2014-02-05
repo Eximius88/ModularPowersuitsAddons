@@ -25,8 +25,7 @@ public class MechanicalAssistance extends PowerModuleBase implements IPlayerTick
     public static final String POWER_USAGE = "Power Usage";
 
 
-
-    public MechanicalAssistance(List<IModularItem> validItems){
+    public MechanicalAssistance(List<IModularItem> validItems) {
 
         super(validItems);
 

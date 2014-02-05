@@ -28,9 +28,9 @@ public class CommonTickHandler implements ITickHandler {
 
     @Override
     public void tickStart(EnumSet<TickType> type, Object... tickData) {
-        if(type.contains(TickType.PLAYER)) {
+        if (type.contains(TickType.PLAYER)) {
             EntityPlayer player;
-            player = (EntityPlayer)tickData[0];
+            player = (EntityPlayer) tickData[0];
             ItemStack torso = player.getCurrentArmor(2);
             if (torso != null && torso.getItem() instanceof ItemPowerArmorChestplate) {
                 if (ModuleManager.itemHasActiveModule(torso, MagnetModule.MODULE_MAGNET)) {
@@ -49,17 +49,17 @@ public class CommonTickHandler implements ITickHandler {
 
         @SuppressWarnings("unchecked")
         List<EntityItem> items = player.worldObj.getEntitiesWithinAABB(EntityItem.class, player.boundingBox.expand(distancexz, distancey, distancexz));
-        for(EntityItem item : items) {
-            if(item.delayBeforeCanPickup > 0) {
+        for (EntityItem item : items) {
+            if (item.delayBeforeCanPickup > 0) {
                 continue;
             }
 
-            if(!AddonUtils.canItemFitInInventory(player, item.getEntityItem())) {
+            if (!AddonUtils.canItemFitInInventory(player, item.getEntityItem())) {
                 continue;
             }
 
-            if(item.delayBeforeCanPickup == 0 && AddonUtils.isServerSide()) {
-                AndrewPacketMagnetMode packet = new AndrewPacketMagnetMode((Player)player, item.entityId);
+            if (item.delayBeforeCanPickup == 0 && AddonUtils.isServerSide()) {
+                AndrewPacketMagnetMode packet = new AndrewPacketMagnetMode((Player) player, item.entityId);
                 PacketDispatcher.sendPacketToPlayer(packet.getPacket250(), (Player) player);
                 if (AddonConfig.useDebugMode) {
                     AddonLogger.logDebug("Packet sent for magnet mode..");
@@ -70,10 +70,10 @@ public class CommonTickHandler implements ITickHandler {
             double dz = player.posZ - item.posZ;
             double absxz = Math.sqrt(dx * dx + dz * dz);
 
-            if(absxz > distancexz) {
+            if (absxz > distancexz) {
                 continue;
             }
-            if(absxz < 1) {
+            if (absxz < 1) {
                 item.onCollideWithPlayer(player);
             }
         }

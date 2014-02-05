@@ -5,6 +5,7 @@ package andrew.powersuits.client;
 //import andrew.powersuits.book.page.ContentsPage;
 //import andrew.powersuits.book.page.IntroPage;
 //import andrew.powersuits.book.page.TextPage;
+
 import andrew.powersuits.common.AddonConfig;
 import andrew.powersuits.common.AddonLogger;
 import andrew.powersuits.common.CommonProxy;
@@ -31,9 +32,7 @@ public class ClientProxy extends CommonProxy {
     private static CommonTickHandler commonTickHandler;
 
 
-
-
-   // public static SmallFontRenderer smallFontRenderer;
+    // public static SmallFontRenderer smallFontRenderer;
 
     public static final String LANG_PATH = "/assets/powersuitaddons/lang/";
     public static String extractedLanguage = "";
@@ -43,8 +42,6 @@ public class ClientProxy extends CommonProxy {
     public static String getCurrentLanguage() {
         return Minecraft.getMinecraft().gameSettings.language;
     }
-
-
 
 
     @SideOnly(Side.CLIENT)

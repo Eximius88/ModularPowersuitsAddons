@@ -53,16 +53,15 @@ public class TerminalHandler implements IWirelessTermHandler {
         }
     }
 
-    public static void registerHandler(){
-        if(Loader.isModLoaded("AppliedEnergistics")){
+    public static void registerHandler() {
+        if (Loader.isModLoaded("AppliedEnergistics")) {
             Util.getWirelessTermRegistery().registerWirelessHandler(new TerminalHandler());
 
         }
 
     }
 
-    public static NBTTagCompound openNbtData(ItemStack item)
-    {
+    public static NBTTagCompound openNbtData(ItemStack item) {
         NBTTagCompound compound = item.getTagCompound();
         if (compound == null) {
             item.setTagCompound(compound = new NBTTagCompound());

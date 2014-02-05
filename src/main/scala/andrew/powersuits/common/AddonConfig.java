@@ -19,7 +19,6 @@ import java.util.List;
 public class AddonConfig extends Config {
 
 
-
     public static String category = "Modular Powersuits Addons";
 
     public static BlockTorch torch;
@@ -35,20 +34,19 @@ public class AddonConfig extends Config {
     public static boolean use24hClock;
 
     public static int manualID;
-    
+
     public static void init(Configuration config) {
         AddonConfig.config = config;
         config.load();
 
-        
 
         config.save();
     }
-    
+
     public static void addModule(IPowerModule module) {
         ModuleManager.addModule(module);
     }
-    
+
 
     public static void loadPowerModules() {
         List<IModularItem> ARMORONLY = Arrays.asList((IModularItem) ModularPowersuits.powerArmorHead, ModularPowersuits.powerArmorTorso, ModularPowersuits.powerArmorLegs, ModularPowersuits.powerArmorFeet);
@@ -81,7 +79,7 @@ public class AddonConfig extends Config {
         addModule(new MechanicalAssistance(TORSOONLY));
 
 
-        if (Loader.isModLoaded("AppliedEnergistics")){
+        if (Loader.isModLoaded("AppliedEnergistics")) {
             addModule(new AppEngWirelessModule(TOOLONLY));
 
         }
@@ -106,7 +104,7 @@ public class AddonConfig extends Config {
     public static Configuration getConfig() {
         return config;
     }
-    
+
     public static void setConfigFolderBase(File folder) {
         configFolder = new File(folder.getAbsolutePath() + "/machinemuse/andrew");
     }
@@ -127,6 +125,6 @@ public class AddonConfig extends Config {
     public static String getNetworkChannelName() {
         return "psa";
     }
-    
+
 
 }

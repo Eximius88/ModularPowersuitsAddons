@@ -18,8 +18,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
 import java.util.ArrayList;
+
 import net.minecraft.item.Item;
+
 import java.util.List;
 
 /**
@@ -29,10 +32,11 @@ import java.util.List;
 public class TEMultimeterModule extends PowerModuleBase implements IRightClickModule {
     public static final String MODULE_TE_MULTIMETER = "TE Multimeter";
     private ItemStack multiMeter;
+
     public TEMultimeterModule(List<IModularItem> validItems) {
         super(validItems);
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 4));
-        multiMeter=GameRegistry.findItemStack("ThermalExpansion", "multimeter", 1);
+        multiMeter = GameRegistry.findItemStack("ThermalExpansion", "multimeter", 1);
         addInstallCost(multiMeter);
     }
 
@@ -62,15 +66,17 @@ public class TEMultimeterModule extends PowerModuleBase implements IRightClickMo
     }
 
     @Override
-    public void onRightClick(EntityPlayer player, World world, ItemStack item) {}
+    public void onRightClick(EntityPlayer player, World world, ItemStack item) {
+    }
 
     @Override
-    public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {}
+    public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+    }
 
     @Override
     public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-        return multiMeter.getItem().onItemUseFirst(itemStack,player,world,x,y,z,side,hitX,hitY,hitZ);
-     
+        return multiMeter.getItem().onItemUseFirst(itemStack, player, world, x, y, z, side, hitX, hitY, hitZ);
+
     }
 
     public float minF(float a, float b) {
@@ -78,5 +84,6 @@ public class TEMultimeterModule extends PowerModuleBase implements IRightClickMo
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int par4) {}
+    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int par4) {
+    }
 }

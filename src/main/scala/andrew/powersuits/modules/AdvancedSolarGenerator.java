@@ -28,7 +28,7 @@ public class AdvancedSolarGenerator extends PowerModuleBase implements IPlayerTi
     public static final String SOLAR_HEAT_GENERATION_DAY = "Daytime Heat Generation";
     public static final String SOLAR_HEAT_GENERATION_NIGHT = "Nighttime Heat Generation";
 
-    public  AdvancedSolarGenerator(List<IModularItem> validItems) {
+    public AdvancedSolarGenerator(List<IModularItem> validItems) {
         super(validItems);
         addBaseProperty(SOLAR_HEAT_GENERATION_DAY, 15);
         addBaseProperty(SOLAR_HEAT_GENERATION_NIGHT, 5);
@@ -85,10 +85,10 @@ public class AdvancedSolarGenerator extends PowerModuleBase implements IPlayerTi
             if (!world.isRemote && !world.provider.hasNoSky && (world.getTotalWorldTime() % 80) == 0) {
                 if (sunVisible) {
                     ElectricItemUtils.givePlayerEnergy(player, ModuleManager.computeModularProperty(item, A_SOLAR_ENERGY_GENERATION_DAY));
-                    MuseHeatUtils.heatPlayer(player, ModuleManager.computeModularProperty(item, SOLAR_HEAT_GENERATION_DAY)/2);
+                    MuseHeatUtils.heatPlayer(player, ModuleManager.computeModularProperty(item, SOLAR_HEAT_GENERATION_DAY) / 2);
                 } else if (moonVisible) {
                     ElectricItemUtils.givePlayerEnergy(player, ModuleManager.computeModularProperty(item, A_SOLAR_ENERGY_GENERATION_NIGHT));
-                    MuseHeatUtils.heatPlayer(player, ModuleManager.computeModularProperty(item, SOLAR_HEAT_GENERATION_NIGHT)/2);
+                    MuseHeatUtils.heatPlayer(player, ModuleManager.computeModularProperty(item, SOLAR_HEAT_GENERATION_NIGHT) / 2);
                 }
             }
         }

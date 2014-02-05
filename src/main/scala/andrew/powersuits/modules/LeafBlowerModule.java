@@ -60,6 +60,7 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
     public String getDataName() {
         return MODULE_LEAF_BLOWER;
     }
+
     @Override
     public String getLocalizedName() {
         return StatCollector.translateToLocal("module.leafBlower.name");
@@ -76,7 +77,8 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
     }
 
     @Override
-    public void onRightClick(EntityPlayer player, World world, ItemStack item) {}
+    public void onRightClick(EntityPlayer player, World world, ItemStack item) {
+    }
 
     @Override
     public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
@@ -115,9 +117,9 @@ public class LeafBlowerModule extends PowerModuleBase implements IRightClickModu
                     int meta = world.getBlockMetadata(x + i, y + j, z + k);
                     Block snowBlock = Block.blocksList[id];
                     if (snowBlock instanceof BlockSnow) {
-                         snowBlock.harvestBlock(world, player, x + i, y + j, z + k, meta);
-                         totalEnergyDrain += ModuleManager.computeModularProperty(itemStack, LEAF_BLOWER_ENERGY_CONSUMPTION);
-                         world.setBlockToAir(x + i, y + j, z + k);
+                        snowBlock.harvestBlock(world, player, x + i, y + j, z + k, meta);
+                        totalEnergyDrain += ModuleManager.computeModularProperty(itemStack, LEAF_BLOWER_ENERGY_CONSUMPTION);
+                        world.setBlockToAir(x + i, y + j, z + k);
 
                     }
                 }

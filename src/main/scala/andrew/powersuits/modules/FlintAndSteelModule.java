@@ -68,7 +68,8 @@ public class FlintAndSteelModule extends PowerModuleBase implements IRightClickM
     }
 
     @Override
-    public void onRightClick(EntityPlayer player, World world, ItemStack item) {}
+    public void onRightClick(EntityPlayer player, World world, ItemStack item) {
+    }
 
     @Override
     public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
@@ -83,7 +84,7 @@ public class FlintAndSteelModule extends PowerModuleBase implements IRightClickM
 
                 if (id == 0) {
                     ElectricItemUtils.drainPlayerEnergy(player, energyConsumption);
-                    world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "fire.ignite", 1.0F, ran.nextFloat() * 0.4F + 0.8F);
+                    world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, "fire.ignite", 1.0F, ran.nextFloat() * 0.4F + 0.8F);
                     world.setBlock(x, y, z, Block.fire.blockID);
                 }
             }
@@ -96,5 +97,6 @@ public class FlintAndSteelModule extends PowerModuleBase implements IRightClickM
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int par4) {}
+    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int par4) {
+    }
 }

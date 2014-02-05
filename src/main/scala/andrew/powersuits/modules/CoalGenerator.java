@@ -30,7 +30,7 @@ public class CoalGenerator extends PowerModuleBase implements IPlayerTickModule,
     public static final String MAX_COAL_STORAGE = "Maximum storage amount";
 
 
-    public CoalGenerator(List<IModularItem> validItems){
+    public CoalGenerator(List<IModularItem> validItems) {
         super(validItems);
         addBaseProperty(MAX_COAL_STORAGE, 128);
         addBaseProperty(COAL_HEAT_GEN, 2.5);
@@ -45,7 +45,7 @@ public class CoalGenerator extends PowerModuleBase implements IPlayerTickModule,
         IInventory inv = player.inventory;
         int coalNeeded = (int) ModuleManager.computeModularProperty(item, MAX_COAL_STORAGE) - AddonUtils.getCoalLevel(item);
         if (coalNeeded > 0) {
-            for (int i = 0; i < inv.getSizeInventory(); i++){
+            for (int i = 0; i < inv.getSizeInventory(); i++) {
                 ItemStack stack = inv.getStackInSlot(i);
                 if (stack != null && stack.itemID == Item.coal.itemID) {
                     int loopTimes = coalNeeded < stack.stackSize ? coalNeeded : stack.stackSize;

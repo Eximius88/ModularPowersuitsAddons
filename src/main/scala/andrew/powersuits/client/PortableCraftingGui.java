@@ -15,11 +15,9 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class PortableCraftingGui extends GuiContainer
-{
+public class PortableCraftingGui extends GuiContainer {
 
-    public PortableCraftingGui(EntityPlayer player, World world, int x, int y, int z)
-    {
+    public PortableCraftingGui(EntityPlayer player, World world, int x, int y, int z) {
 
         super(new PortableCraftingContainer(player.inventory, world, x, y, z));
     }
@@ -28,8 +26,7 @@ public class PortableCraftingGui extends GuiContainer
      * Draw the foreground layer for the GuiContainer (everything in front of the items)
      */
     @Override
-    protected void drawGuiContainerForegroundLayer(int par1, int par2)
-    {
+    protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 
         this.fontRenderer.drawString(StatCollector.translateToLocal("container.crafting"), 28, 6, 4210752);
         this.fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
@@ -39,8 +36,7 @@ public class PortableCraftingGui extends GuiContainer
      * Draw the background layer for the GuiContainer (everything behind the items)
      */
     @Override
-    protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
-    {
+    protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
 
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.mc.getTextureManager().bindTexture(GUI_Loc);
@@ -50,8 +46,7 @@ public class PortableCraftingGui extends GuiContainer
     }
 
     @Override
-    public void onGuiClosed()
-    {
+    public void onGuiClosed() {
 
         super.onGuiClosed();
     }

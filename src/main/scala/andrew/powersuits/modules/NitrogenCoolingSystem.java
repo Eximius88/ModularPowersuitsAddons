@@ -26,7 +26,7 @@ public class NitrogenCoolingSystem extends PowerModuleBase implements IPlayerTic
     public static final String COOLING_BONUS = "Cooling Bonus";
     public static final String ENERGY = "Energy Consumption";
 
-    public NitrogenCoolingSystem(List<IModularItem>validItems){
+    public NitrogenCoolingSystem(List<IModularItem> validItems) {
         super(validItems);
         //addInstallCost(new ItemStack(Item.netherStar, 1));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.liquidNitrogen, 1));

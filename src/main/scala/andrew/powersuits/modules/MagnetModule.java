@@ -79,19 +79,15 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
             }
             int range = (int) ModuleManager.computeModularProperty(stack, MAGNET_RADIUS);
             World world = player.worldObj;
-            player = (EntityPlayer)player;
+            player = (EntityPlayer) player;
             int dragCount = player.username.hashCode();
             AxisAlignedBB bounds = player.boundingBox.expand(range, range, range);
-            if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
-            {
+            if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER) {
                 bounds.expand(0.2000000029802322D, 0.2000000029802322D, 0.2000000029802322D);
-                if (stack.getItemDamage() >> 1 >= 7)
-                {
+                if (stack.getItemDamage() >> 1 >= 7) {
                     List<EntityArrow> arrows = world.getEntitiesWithinAABB(EntityArrow.class, bounds);
-                    for (EntityArrow arrow : arrows)
-                    {
-                        if ((arrow.canBePickedUp == 1) && (world.rand.nextInt(6) == 0))
-                        {
+                    for (EntityArrow arrow : arrows) {
+                        if ((arrow.canBePickedUp == 1) && (world.rand.nextInt(6) == 0)) {
                             EntityItem replacement = new EntityItem(world, arrow.posX, arrow.posY, arrow.posZ, new ItemStack(Item.arrow));
                             world.spawnEntityInWorld(replacement);
                         }
@@ -101,8 +97,7 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
             }
             List<EntityItem> list = world.getEntitiesWithinAABB(EntityItem.class, bounds);
             for (EntityItem e : list) {
-                if (e.age >= 10)
-                {
+                if (e.age >= 10) {
                     double x = player.posX - e.posX;
                     double y = player.posY - e.posY;
                     double z = player.posZ - e.posZ;
@@ -120,8 +115,7 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
                     if (e.isCollidedHorizontally) {
                         e.motionY += 1.0D;
                     }
-                    if (world.rand.nextInt(20) == 0)
-                    {
+                    if (world.rand.nextInt(20) == 0) {
                         float pitch = 0.85F - world.rand.nextFloat() * 3.0F / 10.0F;
                         world.playSoundEffect(e.posX, e.posY, e.posZ, "mob.endermen.portal", 0.6F, pitch);
                     }

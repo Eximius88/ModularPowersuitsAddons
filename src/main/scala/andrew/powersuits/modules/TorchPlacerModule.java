@@ -123,7 +123,7 @@ public class TorchPlacerModule extends PowerModuleBase implements IToggleableMod
                     }
                 } else {
                     if (AddonUtils.isClientSide()) {
-                            player.addChatMessage("[MPSA] Cannot place a torch here. Torch level: " + AddonUtils.getTorchLevel(item) + "/" + (int) ModuleManager.computeModularProperty(item, MAX_TORCH_STORAGE));
+                        player.addChatMessage("[MPSA] Cannot place a torch here. Torch level: " + AddonUtils.getTorchLevel(item) + "/" + (int) ModuleManager.computeModularProperty(item, MAX_TORCH_STORAGE));
                     }
                 }
             } else {

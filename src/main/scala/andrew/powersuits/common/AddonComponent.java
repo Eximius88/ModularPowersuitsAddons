@@ -17,8 +17,7 @@ public class AddonComponent {
             computerChip = ModularPowersuits.components.addComponent("componentComputerChip", "An upgraded control circuit that contains a CPU which is capable of more advanced calculations.", "computerchip");
             rubberHose = ModularPowersuits.components.addComponent("componentRubberHose", "A heavily insulated rubber hose capable of withstanding extreme heat or cold", "rubberhose");
             liquidNitrogen = ModularPowersuits.components.addComponent("componentLiquidNitrogen", "A bucket of Liquid Nitrogen", "liquidnitrogen");
-        }
-        else {
+        } else {
             AddonLogger.logError("MPS components were not initialized, MPSA componenets will not be activated.");
         }
     }

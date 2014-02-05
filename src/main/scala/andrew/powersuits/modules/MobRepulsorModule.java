@@ -72,7 +72,7 @@ public class MobRepulsorModule extends PowerModuleBase implements IPlayerTickMod
             if (player.worldObj.getTotalWorldTime() % 20 == 0) {
                 ElectricItemUtils.drainPlayerEnergy(player, ModuleManager.computeModularProperty(item, MOB_REPULSOR_ENERGY_CONSUMPTION));
             }
-            repulse(player.worldObj, (int)player.posX, (int)player.posY, (int)player.posZ);
+            repulse(player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
         }
     }
 
@@ -86,19 +86,19 @@ public class MobRepulsorModule extends PowerModuleBase implements IPlayerTickMod
         Iterator iterator;
         List list = world.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox(i - distance, j - distance, k - distance, i + distance, j + distance, k + distance));
         for (iterator = list.iterator(); iterator.hasNext(); push(entity, i, j, k)) {
-            entity = (Entity)iterator.next();
+            entity = (Entity) iterator.next();
         }
         list = world.getEntitiesWithinAABB(EntityArrow.class, AxisAlignedBB.getBoundingBox(i - distance, j - distance, k - distance, i + distance, j + distance, k + distance));
         for (iterator = list.iterator(); iterator.hasNext(); push(entity, i, j, k)) {
-            entity = (Entity)iterator.next();
+            entity = (Entity) iterator.next();
         }
         list = world.getEntitiesWithinAABB(EntityFireball.class, AxisAlignedBB.getBoundingBox(i - distance, j - distance, k - distance, i + distance, j + distance, k + distance));
         for (iterator = list.iterator(); iterator.hasNext(); push(entity, i, j, k)) {
-            entity = (Entity)iterator.next();
+            entity = (Entity) iterator.next();
         }
         list = world.getEntitiesWithinAABB(EntityPotion.class, AxisAlignedBB.getBoundingBox(i - distance, j - distance, k - distance, i + distance, j + distance, k + distance));
         for (iterator = list.iterator(); iterator.hasNext(); push(entity, i, j, k)) {
-            entity = (Entity)iterator.next();
+            entity = (Entity) iterator.next();
         }
     }
 
@@ -116,20 +116,17 @@ public class MobRepulsorModule extends PowerModuleBase implements IPlayerTickMod
                 double d7 = -(d2 * 0.01999999955296516D / d4) * Math.pow(6.0D, 3.0D);
                 if (d5 > 0.0D) {
                     d5 = 0.22D;
-                }
-                else if (d5 < 0.0D) {
+                } else if (d5 < 0.0D) {
                     d5 = -0.22D;
                 }
                 if (d6 > 0.2D) {
                     d6 = 0.12D;
-                }
-                else if (d6 < -0.1D) {
+                } else if (d6 < -0.1D) {
                     d6 = 0.12D;
                 }
                 if (d7 > 0.0D) {
                     d7 = 0.22D;
-                }
-                else if (d7 < 0.0D) {
+                } else if (d7 < 0.0D) {
                     d7 = -0.22D;
                 }
                 entity2.motionX += d5;

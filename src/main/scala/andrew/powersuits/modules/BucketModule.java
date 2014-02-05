@@ -74,14 +74,13 @@ public class BucketModule extends PowerModuleBase implements IRightClickModule {
     @Override
     public void onRightClick(EntityPlayer player, World world, ItemStack item) {
         float f = 1.0F;
-        double d0 = player.prevPosX + (player.posX - player.prevPosX) * (double)f;
-        double d1 = player.prevPosY + (player.posY - player.prevPosY) * (double)f + 1.62D - (double)player.yOffset;
-        double d2 = player.prevPosZ + (player.posZ - player.prevPosZ) * (double)f;
+        double d0 = player.prevPosX + (player.posX - player.prevPosX) * (double) f;
+        double d1 = player.prevPosY + (player.posY - player.prevPosY) * (double) f + 1.62D - (double) player.yOffset;
+        double d2 = player.prevPosZ + (player.posZ - player.prevPosZ) * (double) f;
         MovingObjectPosition MOP = getMovingObjectPositionFromPlayer(world, player, isEmpty);
         if (MOP == null) {
             return;
-        }
-        else {
+        } else {
             FillBucketEvent event = new FillBucketEvent(player, item, world, MOP);
             if (MinecraftForge.EVENT_BUS.post(event)) {
                 return;
@@ -126,8 +125,7 @@ public class BucketModule extends PowerModuleBase implements IRightClickModule {
                         }
                         return;
                     }
-                }
-                else { // Placing Liquid
+                } else { // Placing Liquid
                     if (MOP.sideHit == 0) {
                         --j;
                     }
@@ -169,15 +167,13 @@ public class BucketModule extends PowerModuleBase implements IRightClickModule {
     public boolean tryPlaceContainedLiquid(World world, double par2, double par4, double par6, int x, int y, int z) {
         if (!world.isAirBlock(x, y, z) && world.getBlockMaterial(x, y, z).isSolid()) {
             return false;
-        }
-        else {
+        } else {
             if (world.provider.isHellWorld && contained.fluidID == Block.waterMoving.blockID) {
                 world.playSoundEffect(par2 + 0.5D, par4 + 0.5D, par6 + 0.5D, "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
                 for (int l = 0; l < 8; ++l) {
-                    world.spawnParticle("largesmoke", (double)x + Math.random(), (double)y + Math.random(), (double)z + Math.random(), 0.0D, 0.0D, 0.0D);
+                    world.spawnParticle("largesmoke", (double) x + Math.random(), (double) y + Math.random(), (double) z + Math.random(), 0.0D, 0.0D, 0.0D);
                 }
-            }
-            else {
+            } else {
                 int i = contained.fluidID;
                 world.setBlock(x, y, z, i, 0, 3);
             }
@@ -189,21 +185,21 @@ public class BucketModule extends PowerModuleBase implements IRightClickModule {
         float f = 1.0F;
         float f1 = par2EntityPlayer.prevRotationPitch + (par2EntityPlayer.rotationPitch - par2EntityPlayer.prevRotationPitch) * f;
         float f2 = par2EntityPlayer.prevRotationYaw + (par2EntityPlayer.rotationYaw - par2EntityPlayer.prevRotationYaw) * f;
-        double d0 = par2EntityPlayer.prevPosX + (par2EntityPlayer.posX - par2EntityPlayer.prevPosX) * (double)f;
-        double d1 = par2EntityPlayer.prevPosY + (par2EntityPlayer.posY - par2EntityPlayer.prevPosY) * (double)f + 1.62D - (double)par2EntityPlayer.yOffset;
-        double d2 = par2EntityPlayer.prevPosZ + (par2EntityPlayer.posZ - par2EntityPlayer.prevPosZ) * (double)f;
+        double d0 = par2EntityPlayer.prevPosX + (par2EntityPlayer.posX - par2EntityPlayer.prevPosX) * (double) f;
+        double d1 = par2EntityPlayer.prevPosY + (par2EntityPlayer.posY - par2EntityPlayer.prevPosY) * (double) f + 1.62D - (double) par2EntityPlayer.yOffset;
+        double d2 = par2EntityPlayer.prevPosZ + (par2EntityPlayer.posZ - par2EntityPlayer.prevPosZ) * (double) f;
         Vec3 vec3 = par1World.getWorldVec3Pool().getVecFromPool(d0, d1, d2);
         float f3 = MathHelper.cos(-f2 * 0.017453292F - (float) Math.PI);
-        float f4 = MathHelper.sin(-f2 * 0.017453292F - (float)Math.PI);
+        float f4 = MathHelper.sin(-f2 * 0.017453292F - (float) Math.PI);
         float f5 = -MathHelper.cos(-f1 * 0.017453292F);
         float f6 = MathHelper.sin(-f1 * 0.017453292F);
         float f7 = f4 * f5;
         float f8 = f3 * f5;
         double d3 = 5.0D;
         if (par2EntityPlayer instanceof EntityPlayerMP) {
-            d3 = ((EntityPlayerMP)par2EntityPlayer).theItemInWorldManager.getBlockReachDistance();
+            d3 = ((EntityPlayerMP) par2EntityPlayer).theItemInWorldManager.getBlockReachDistance();
         }
-        Vec3 vec31 = vec3.addVector((double)f7 * d3, (double)f6 * d3, (double)f8 * d3);
+        Vec3 vec31 = vec3.addVector((double) f7 * d3, (double) f6 * d3, (double) f8 * d3);
         return par1World.rayTraceBlocks_do_do(vec3, vec31, par3, !par3);
     }
 

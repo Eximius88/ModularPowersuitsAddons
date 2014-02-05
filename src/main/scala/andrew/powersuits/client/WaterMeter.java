@@ -13,7 +13,7 @@ import net.minecraft.util.Icon;
  */
 public class WaterMeter extends HeatMeter {
     public void draw(double xpos, double ypos, double value) {
-    	MuseTextureUtils.pushTexture(MuseTextureUtils.BLOCK_TEXTURE_QUILT());
+        MuseTextureUtils.pushTexture(MuseTextureUtils.BLOCK_TEXTURE_QUILT());
         RenderState.blendingOn();
         RenderState.on2D();
         Icon icon = Block.waterStill.getIcon(0, 0);

@@ -34,16 +34,17 @@ public class RenderTickHandler implements ITickHandler {
 
     static double yBaseIcon;
     static int yBaseString;
+
     static {
         if (Config.useGraphicalMeters()) {
             yBaseIcon = 150.0;
             yBaseString = 155;
-        }
-        else {
+        } else {
             yBaseIcon = 26.0;
             yBaseString = 32;
         }
     }
+
     double yOffsetIcon = 16.0;
     int yOffsetString = 18;
     String ampm = "";
@@ -58,7 +59,8 @@ public class RenderTickHandler implements ITickHandler {
     ItemStack compass = new ItemStack(Item.compass);
 
     @Override
-    public void tickStart(EnumSet<TickType> type, Object... tickData) {}
+    public void tickStart(EnumSet<TickType> type, Object... tickData) {
+    }
 
     @Override
     public void tickEnd(EnumSet<TickType> type, Object... tickData) {
@@ -74,8 +76,8 @@ public class RenderTickHandler implements ITickHandler {
                         MuseRenderer.drawString(num, 17, yBaseString);
                         MuseRenderer.drawItemAt(-1.0, yBaseIcon, food);
                     } else {
-                        MuseRenderer.drawString(num, 17, yBaseString + (yOffsetString*i));
-                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon*i), food);
+                        MuseRenderer.drawString(num, 17, yBaseString + (yOffsetString * i));
+                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon * i), food);
                     }
                 } else if (modules.get(i).equals(TorchPlacerModule.MODULE_TORCH_PLACER)) {
                     int torchLevel = AddonUtils.getTorchLevel(player.getCurrentEquippedItem());
@@ -85,12 +87,12 @@ public class RenderTickHandler implements ITickHandler {
                         MuseRenderer.drawString(num, 17, yBaseString);
                         MuseRenderer.drawItemAt(-1.0, yBaseIcon, torch);
                     } else {
-                        MuseRenderer.drawString(num, 17, yBaseString + (yOffsetString*i));
-                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon*i), torch);
+                        MuseRenderer.drawString(num, 17, yBaseString + (yOffsetString * i));
+                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon * i), torch);
                     }
                 } else if (modules.get(i).equals(ClockModule.MODULE_CLOCK)) {
                     long time = player.worldObj.provider.getWorldTime();
-                    int hour = (int)((time%24000)/1000);
+                    int hour = (int) ((time % 24000) / 1000);
                     if (AddonConfig.use24hClock) {
                         if (hour < 19) {
                             hour += 6;
@@ -98,8 +100,7 @@ public class RenderTickHandler implements ITickHandler {
                             hour -= 18;
                         }
                         ampm = "h";
-                    }
-                    else {
+                    } else {
                         if (hour < 6) {
                             hour += 6;
                             ampm = " AM";
@@ -121,14 +122,14 @@ public class RenderTickHandler implements ITickHandler {
                         MuseRenderer.drawString(hour + ampm, 17, yBaseString);
                         MuseRenderer.drawItemAt(-1.0, yBaseIcon, clock);
                     } else {
-                        MuseRenderer.drawString(hour + ampm, 17, yBaseString + (yOffsetString*i));
-                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon*i), clock);
+                        MuseRenderer.drawString(hour + ampm, 17, yBaseString + (yOffsetString * i));
+                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon * i), clock);
                     }
                 } else if (modules.get(i).equals(CompassModule.MODULE_COMPASS)) {
                     if (i == 0) {
                         MuseRenderer.drawItemAt(-1.0, yBaseIcon, compass);
                     } else {
-                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon*i), compass);
+                        MuseRenderer.drawItemAt(-1.0, yBaseIcon + (yOffsetIcon * i), compass);
                     }
                 } else if (modules.get(i).equals(WaterTankModule.MODULE_WATER_TANK)) {
                     Minecraft mc = Minecraft.getMinecraft();
@@ -178,7 +179,7 @@ public class RenderTickHandler implements ITickHandler {
                 water = new WaterMeter();
             }
             double left = screen.getScaledWidth() - 12;
-            double top = (screen.getScaledHeight() / 2.0 - 16)+40;
+            double top = (screen.getScaledHeight() / 2.0 - 16) + 40;
             water.draw(left, top, currWater / maxWater);
             MuseRenderer.drawRightAlignedString(currStr, left - 2, top + 15); //10
         } else {

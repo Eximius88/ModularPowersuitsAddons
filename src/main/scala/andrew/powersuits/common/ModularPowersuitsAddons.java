@@ -1,6 +1,7 @@
 package andrew.powersuits.common;
 
 //import andrew.powersuits.book.ItemBook;
+
 import andrew.powersuits.client.ClientProxy;
 import andrew.powersuits.modules.TerminalHandler;
 import andrew.powersuits.network.AndrewPacketHandler;
@@ -40,7 +41,7 @@ public class ModularPowersuitsAddons {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-            INSTANCE = this;
+        INSTANCE = this;
         File oldConfig = event.getSuggestedConfigurationFile();
         File newConfig = new File(event.getModConfigurationDirectory() + "/machinemuse/andrew/PowersuitsAddons.cfg");
         if (oldConfig.exists()) {
@@ -52,9 +53,8 @@ public class ModularPowersuitsAddons {
         }
         AddonConfig.init(new Configuration(newConfig));
         AddonConfig.setConfigFolderBase(event.getModConfigurationDirectory());
-        
 
-        
+
         AddonConfig.initItems();
         proxy.registerRenderers();
         //proxy.readManuals();
@@ -72,18 +72,15 @@ public class ModularPowersuitsAddons {
         TerminalHandler.registerHandler();
 
 
-
-
     }
 
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-       AddonRecipeManager.addRecipes();
-       AddonConfig.loadPowerModules();
+        AddonRecipeManager.addRecipes();
+        AddonConfig.loadPowerModules();
 
-       AddonConfig.getConfig().save();
-
+        AddonConfig.getConfig().save();
 
 
     }

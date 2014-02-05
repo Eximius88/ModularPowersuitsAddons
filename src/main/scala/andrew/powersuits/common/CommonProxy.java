@@ -20,15 +20,22 @@ public class CommonProxy {
         packetHandler.register();
     }
 
-    public void registerRenderers() {}
+    public void registerRenderers() {
+    }
 
-    public void readManuals() {}
+    public void readManuals() {
+    }
 
-    public static String getCurrentLanguage() { return null; }
+    public static String getCurrentLanguage() {
+        return null;
+    }
 
-    public static void loadCurrentLanguage() {}
+    public static void loadCurrentLanguage() {
+    }
 
-    public static String translate(String str) {return str;}
+    public static String translate(String str) {
+        return str;
+    }
 
 
 }

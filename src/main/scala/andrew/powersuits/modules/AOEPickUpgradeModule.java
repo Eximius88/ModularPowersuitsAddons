@@ -57,11 +57,11 @@ public class AOEPickUpgradeModule extends PowerModuleBase implements IBlockBreak
 
         if (player instanceof EntityPlayerMP) {
             EntityPlayerMP playerMP = (EntityPlayerMP) player;
-            for (int i = -1; i < 1; i++){
-                for (int j = -1; j <1; j++){
-            playerMP.theItemInWorldManager.tryHarvestBlock(i, y, j);
-            playerMP.theItemInWorldManager.tryHarvestBlock(x, y+1, z);
-            playerMP.theItemInWorldManager.tryHarvestBlock(x, y-1, z);
+            for (int i = -1; i < 1; i++) {
+                for (int j = -1; j < 1; j++) {
+                    playerMP.theItemInWorldManager.tryHarvestBlock(i, y, j);
+                    playerMP.theItemInWorldManager.tryHarvestBlock(x, y + 1, z);
+                    playerMP.theItemInWorldManager.tryHarvestBlock(x, y - 1, z);
                 }
 
             }

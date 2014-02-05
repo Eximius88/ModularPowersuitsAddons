@@ -91,7 +91,7 @@ public abstract class MusePacketOld {
         try {
             int length = datain.readInt();
             int[] read = new int[length];
-            for(int k=0;k<read.length;k++) {
+            for (int k = 0; k < read.length; k++) {
                 read[k] = datain.readInt();
             }
             return read;
@@ -105,7 +105,7 @@ public abstract class MusePacketOld {
     public void writeIntArray(int[] data) {
         try {
             dataout.writeInt(data.length);
-            for(int k=0;k<data.length;k++) {
+            for (int k = 0; k < data.length; k++) {
                 dataout.writeInt(data[k]);
             }
         } catch (IOException e) {

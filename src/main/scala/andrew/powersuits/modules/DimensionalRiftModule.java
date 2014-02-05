@@ -14,7 +14,7 @@ import net.machinemuse.utils.MuseItemUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -23,10 +23,9 @@ import java.util.List;
  * Created by Eximius88 on 2/3/14.
  */
 public class DimensionalRiftModule extends PowerModuleBase implements IRightClickModule {
-    public static final String MODULE_DIMENSIONAL_RIFT = "WIP Dimensional Tear Generator WIP";
+    public static final String MODULE_DIMENSIONAL_RIFT = "Dimensional Tear Generator";
     public static final String DIMENSIONAL_RIFT_ENERGY_GENERATION = "Energy Consumption";
     public static final String DIMENSIONAL_RIFT_HEAT_GENERATION = "Heat Generation";
-    private int timer = 0, cooldown = 0;
 
     public DimensionalRiftModule(List<IModularItem> validItems) {
         super(validItems);
@@ -59,31 +58,41 @@ public class DimensionalRiftModule extends PowerModuleBase implements IRightClic
 
     @Override
     public String getDescription() {
-        return "Generate a tear in the space-time continuum that will teleport the player to its relative coordinates in the nether or overworld. You must bind this module to a key and activate it to use.";
+        return "Generate a tear in the space-time continuum that will teleport the player to its relative coordinates in the nether or overworld.";
     }
 
     @Override
     public void onRightClick(EntityPlayer playerClicking, World world, ItemStack item) {
 
-        if ((playerClicking.ridingEntity == null) && (playerClicking.riddenByEntity == null) && ((playerClicking instanceof EntityPlayerMP)))
-        {
-            EntityPlayerMP thePlayer = (EntityPlayerMP)playerClicking;
-            if (thePlayer.dimension != -1)
-            {
+        if ((playerClicking.ridingEntity == null) && (playerClicking.riddenByEntity == null) && ((playerClicking instanceof EntityPlayerMP))) {
+            EntityPlayerMP thePlayer = (EntityPlayerMP) playerClicking;
+            if (thePlayer.dimension != -1) {
                 thePlayer.setLocationAndAngles(0.5D, thePlayer.posY, 0.5D, thePlayer.rotationYaw, thePlayer.rotationPitch);
                 thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, -1, new MPSATeleporter(thePlayer.mcServer.worldServerForDimension(-1)));
+                ElectricItemUtils.drainPlayerEnergy(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_ENERGY_GENERATION));
+                MuseHeatUtils.heatPlayer(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_HEAT_GENERATION));
+            } else if (thePlayer.dimension == -1 || thePlayer.dimension == 1)
+                thePlayer.setLocationAndAngles(0.5D, thePlayer.posY, 0.5D, thePlayer.rotationYaw, thePlayer.rotationPitch);
+            thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new MPSATeleporter(thePlayer.mcServer.worldServerForDimension(0)));
+            if (thePlayer.dimension == 0) {
+                ChunkCoordinates coords = (thePlayer instanceof EntityPlayer) ? (thePlayer).getBedLocation(thePlayer.dimension) : null;
+                if ((coords == null) || ((coords.posX == 0) && (coords.posY == 0) && (coords.posZ == 0))) {
+                    coords = world.getSpawnPoint();
+                }
+                int yPos = coords.posY;
+                while ((world.getBlockId(coords.posX, yPos, coords.posZ) != 0) && (world.getBlockId(coords.posX, yPos + 1, coords.posZ) != 0)) {
+                    yPos++;
+                }
+                (thePlayer).setPositionAndUpdate(coords.posX + 0.5D, yPos, coords.posZ + 0.5D);
+
             }
-            else if (thePlayer.dimension == -1 || thePlayer.dimension == 1)
-            {
-                if (!world.isRemote){
-                MinecraftServer.getServerConfigurationManager(MinecraftServer.getServer()).respawnPlayer((EntityPlayerMP) thePlayer, 0, true);
-            }
-            }
+
             ElectricItemUtils.drainPlayerEnergy(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_ENERGY_GENERATION));
             MuseHeatUtils.heatPlayer(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_HEAT_GENERATION));
         }
 
     }
+
 
     @Override
     public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {

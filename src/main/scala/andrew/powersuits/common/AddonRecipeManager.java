@@ -17,7 +17,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class AddonRecipeManager {
 
     public static void cheatyLeather() {
-        if (AddonConfig.useCheatyLeatherRecipe && ModCompatability.isThermalExpansionLoaded()){
+        if (AddonConfig.useCheatyLeatherRecipe && ModCompatability.isThermalExpansionLoaded()) {
 
             NBTTagCompound toSend = new NBTTagCompound();
             toSend.setInteger("energy", 1350);
@@ -47,7 +47,7 @@ public class AddonRecipeManager {
         ItemStack sugar = new ItemStack(Item.sugar);
 
 
-       if (ModCompatability.vanillaRecipesEnabled()) {
+        if (ModCompatability.vanillaRecipesEnabled()) {
 
             //===========================================================================================================================
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.solarPanel, true, "PPP", "PLP", "PPP", 'P', glassPane, 'L', lapisBlock));
@@ -131,7 +131,6 @@ public class AddonRecipeManager {
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.computerChip, " O ", "GMS", " E ", 'E', powerCoilElectrum, 'S', powerCoilSilver, 'G', powerCoilGold, 'M', multimeter, 'O', ItemComponent.solenoid));
             //===========================================================================================================================
         }
-
 
 
     }

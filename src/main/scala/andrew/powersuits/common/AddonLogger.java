@@ -11,6 +11,7 @@ import java.util.logging.Logger;
  */
 public abstract class AddonLogger {
     public static final Logger logger = Logger.getLogger("MPSA-" + FMLCommonHandler.instance().getEffectiveSide());
+
     static {
         logger.setParent(FMLLog.getLogger());
     }
