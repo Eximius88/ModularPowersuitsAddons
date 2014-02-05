@@ -5,12 +5,9 @@ import cpw.mods.fml.common.Loader;
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.IPowerModule;
 import net.machinemuse.api.ModuleManager;
-import net.machinemuse.powersuits.block.BlockLuxCapacitor;
-import net.machinemuse.powersuits.block.BlockTinkerTable;
 import net.machinemuse.powersuits.common.Config;
 import net.machinemuse.powersuits.common.ModCompatability;
 import net.machinemuse.powersuits.common.ModularPowersuits;
-import net.machinemuse.powersuits.item.ItemComponent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockTorch;
 import net.minecraftforge.common.Configuration;
@@ -77,12 +74,12 @@ public class AddonConfig extends Config {
         addModule(new LightningModule(TOOLONLY));
         addModule(new WaterTankModule(TORSOONLY));
         //addModule(new BucketModule(TOOLONLY));
-        addModule(new DimensionalRiftModule(TORSOONLY));
+        addModule(new DimensionalRiftModule(TOOLONLY));
         addModule(new AdvancedSolarGenerator(HEADONLY));
         //addModule(new CoalGenerator(TORSOONLY));
         addModule(new NitrogenCoolingSystem(TORSOONLY));
         addModule(new MechanicalAssistance(TORSOONLY));
-        addModule(new TestTeleportModule(TOOLONLY));
+
 
         if (Loader.isModLoaded("AppliedEnergistics")){
             addModule(new AppEngWirelessModule(TOOLONLY));

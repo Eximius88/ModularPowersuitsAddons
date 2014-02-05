@@ -1,98 +1,143 @@
 package andrew.powersuits.util;
 
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.LongHashMap;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.chunk.Chunk;
+import andrew.powersuits.tileentity.TileEntityPortal;
 
-/**
- * Created by Eximius88 on 2/3/14.
- */
 public class MPSATeleporter extends Teleporter
-
 {
-    private final WorldServer worldInstance;
+    private final WorldServer worldServerInstance;
+    private final Random random;
+    private final LongHashMap destinationCoordinateCache = new LongHashMap();
+    private final List destinationCoordinateKeys = new ArrayList();
 
     public MPSATeleporter(WorldServer par1WorldServer)
     {
         super(par1WorldServer);
-        this.worldInstance = par1WorldServer;
+        this.worldServerInstance = par1WorldServer;
+        this.random = new Random(par1WorldServer.getSeed());
     }
 
-    public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
+    public void placeInPortal(Entity entity, double x, double y, double z, float r)
     {
-        EntityLivingBase player = (EntityLivingBase)par1Entity;
-        clearTeleportPath(this.worldInstance, player);
-        par1Entity.fallDistance = 0.0F;
-    }
-
-    private void clearTeleportPath(World world, EntityLivingBase entity)
-    {
-        if (entity.dimension != -1)
-        {
-            boolean canFindHigherGround = false;
-            double posY = entity.posY;
-            for (;;)
+        if (!placeInExistingPortal(entity, x, y, z, r)) {
+            if (this.worldServerInstance.provider.dimensionId != -1)
             {
-                if ((world.getBlockId((int)entity.posX, (int)posY, (int)entity.posZ) == 0) || (posY >= 256.0D))
-                {
-                    canFindHigherGround = true;
-                    break;
-                }
-                posY += 1.0D;
-            }
-            if (canFindHigherGround)
-            {
-                while ((world.getBlockId((int)entity.posX, (int)posY - 1, (int)entity.posZ) == 0) && (posY > 0.0D)) {
-                    posY -= 1.0D;
-                }
-                entity.setPosition(entity.posX, posY, entity.posZ);
+                y = this.worldServerInstance.getTopSolidOrLiquidBlock((int)x, (int)z);
+                entity.setLocationAndAngles(x, y, z, entity.rotationYaw, 0.0F);
             }
             else
             {
-                for (int q = (int)Math.floor(entity.posY) - 2; q < entity.posY + 1.0D; q++) {
-                    for (int i = (int)Math.floor(entity.posX) - 1; i < entity.posX + 1.0D; i++) {
-                        for (int k = (int)Math.floor(entity.posZ) - 1; k < entity.posZ + 1.0D; k++) {
-                            if (q == (int)Math.floor(entity.posY - 2.0D)) {
-                                world.setBlock(i, q, k, 0);
-                            }
-                        }
+                makePortal(entity);
+            }
+        }
+    }
+
+    public TileEntity findPortalInChunk(double x, double z)
+    {
+        Chunk chunk = this.worldServerInstance.getChunkFromBlockCoords((int)x, (int)z);
+        Iterator t = chunk.chunkTileEntityMap.values().iterator();
+        while (t.hasNext())
+        {
+            Object tile = t.next();
+            if ((tile instanceof TileEntityPortal)) {
+                return (TileEntity)tile;
+            }
+        }
+        return null;
+    }
+
+    public boolean placeInExistingPortal(Entity entity, double x, double y, double z, float r)
+    {
+        TileEntity destPortal = null;
+        for (int s = 0; (s <= 5) && (destPortal == null); s++) {
+            for (int dx = -s; dx <= s; dx++) {
+                for (int dz = -s; dz <= s; dz++) {
+                    if (destPortal == null) {
+                        destPortal = findPortalInChunk(x + dx * 16, z + dz * 16);
                     }
                 }
             }
         }
-        else if (entity.dimension == -1)
+        if (destPortal != null)
         {
-            boolean canFindHigherGround = false;
-            double posY = entity.posY;
-            for (;;)
-            {
-                if ((world.getBlockId((int)entity.posX, (int)posY, (int)entity.posZ) == 0) || (posY >= 256.0D))
-                {
-                    canFindHigherGround = true;
-                    break;
-                }
-                posY += 1.0D;
-            }
-            if (canFindHigherGround) {
-                entity.setPosition(entity.posX, posY, entity.posZ);
-            } else {
-                for (int q = (int)Math.floor(entity.posY) - 2; q < entity.posY + 1.0D; q++) {
-                    for (int i = (int)Math.floor(entity.posX) - 1; i < entity.posX + 1.0D; i++) {
-                        for (int k = (int)Math.floor(entity.posZ) - 1; k < entity.posZ + 1.0D; k++) {
-                            if (q == (int)Math.floor(entity.posY - 2.0D)) {
-                                world.setBlock(i, q, k, Block.netherrack.blockID);
-                            } else {
-                                world.setBlock(i, q, k, 0);
-                            }
-                        }
+            entity.setLocationAndAngles(destPortal.xCoord + 0.5D, destPortal.yCoord + 1, destPortal.zCoord + 0.5D, entity.rotationYaw, entity.rotationPitch);
+            entity.motionX = (entity.motionY = entity.motionZ = 0.0D);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean makePortal(Entity entity)
+    {
+        int ex = MathHelper.floor_double(entity.posX);
+        int ey = MathHelper.floor_double(entity.posY) - 1;
+        int ez = MathHelper.floor_double(entity.posZ);
+
+
+        ey /= 5;
+        ey += 22;
+        if (ey > 247) {
+            ey = 247;
+        }
+        for (int x = -3; x <= 3; x++) {
+            for (int z = -3; z <= 3; z++) {
+                for (int y = -2; y <= 4; y++) {
+                    if ((x == 0) && (y == -1) && (z == 0))
+                    {
+                       // this.worldServerInstance.setBlock(ex + x, ey + y, ez + z, Block.blockDiamond.blockID, 1, 2);
+                       // this.worldServerInstance.scheduleBlockUpdate(ex + x, ey + y, ez + z, Block.blockDiamond.blockID, 1);
                     }
+                    else if ((y <= -2))
+                    {
+                        this.worldServerInstance.setBlock(ex + x, ey + y, ez + z, Block.stone.blockID);
+                    }
+                    else if ((y == 0) && ((x == 2) || (x == -2) || (z == 2) || (z == -2)))
+                    {
+                        //this.worldServerInstance.setBlock(ex + x, ey + y, ez + z, 0, 5, 3);
+                    }
+                    else
+                    {
+                        this.worldServerInstance.setBlock(ex + x, ey + y, ez + z, 0);
+                    }
+                }
+            }
+        }
+        entity.setLocationAndAngles(ex + 0.5D, ey, ez + 0.5D, entity.rotationYaw, 0.0F);
+        entity.motionX = (entity.motionY = entity.motionZ = 0.0D);
+
+        return true;
+    }
+
+    public void removeStalePortalLocations(long par1)
+    {
+        if (par1 % 100L == 0L)
+        {
+            Iterator iterator = this.destinationCoordinateKeys.iterator();
+            long j = par1 - 600L;
+            while (iterator.hasNext())
+            {
+                Long olong = (Long)iterator.next();
+                PortalPosition portalposition = (PortalPosition)this.destinationCoordinateCache.getValueByKey(olong.longValue());
+                if ((portalposition == null) || (portalposition.lastUpdateTime < j))
+                {
+                    iterator.remove();
+                    this.destinationCoordinateCache.remove(olong.longValue());
                 }
             }
         }
     }
 }
-
-

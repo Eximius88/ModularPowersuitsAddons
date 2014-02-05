@@ -1,29 +1,28 @@
 package andrew.powersuits.modules;
 
-import andrew.powersuits.util.DimensionUtilities;
+
+import andrew.powersuits.util.MPSATeleporter;
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.ModuleManager;
-import net.machinemuse.api.moduletrigger.IPlayerTickModule;
-import net.machinemuse.api.moduletrigger.IToggleableModule;
+import net.machinemuse.api.moduletrigger.IRightClickModule;
 import net.machinemuse.powersuits.item.ItemComponent;
 import net.machinemuse.powersuits.powermodule.PowerModuleBase;
+import net.machinemuse.utils.ElectricItemUtils;
 import net.machinemuse.utils.MuseCommonStrings;
+import net.machinemuse.utils.MuseHeatUtils;
 import net.machinemuse.utils.MuseItemUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 /**
- * Created by User: Andrew2448
- * 5:41 PM 4/30/13
+ * Created by Eximius88 on 2/3/14.
  */
-public class DimensionalRiftModule extends PowerModuleBase implements IPlayerTickModule, IToggleableModule {
+public class DimensionalRiftModule extends PowerModuleBase implements IRightClickModule {
     public static final String MODULE_DIMENSIONAL_RIFT = "WIP Dimensional Tear Generator WIP";
     public static final String DIMENSIONAL_RIFT_ENERGY_GENERATION = "Energy Consumption";
     public static final String DIMENSIONAL_RIFT_HEAT_GENERATION = "Heat Generation";
@@ -31,7 +30,7 @@ public class DimensionalRiftModule extends PowerModuleBase implements IPlayerTic
 
     public DimensionalRiftModule(List<IModularItem> validItems) {
         super(validItems);
-        addBaseProperty(DIMENSIONAL_RIFT_HEAT_GENERATION, 50);
+        addBaseProperty(DIMENSIONAL_RIFT_HEAT_GENERATION, 55);
         addBaseProperty(DIMENSIONAL_RIFT_ENERGY_GENERATION, 20000);
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.servoMotor, 2));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));
@@ -45,7 +44,7 @@ public class DimensionalRiftModule extends PowerModuleBase implements IPlayerTic
 
     @Override
     public String getCategory() {
-        return MuseCommonStrings.CATEGORY_MOVEMENT;
+        return MuseCommonStrings.CATEGORY_TOOL;
     }
 
     @Override
@@ -64,42 +63,40 @@ public class DimensionalRiftModule extends PowerModuleBase implements IPlayerTic
     }
 
     @Override
-    public void onPlayerTickActive(EntityPlayer player, ItemStack item) {
-        if (ModuleManager.isModuleOnline(item.getTagCompound(), MODULE_DIMENSIONAL_RIFT)) {
-            //player.
-            World world = Minecraft.getMinecraft().theWorld;
-            Entity target = Minecraft.getMinecraft().thePlayer;
-            if ((world.isRemote) || (!(target instanceof EntityLivingBase))) {
+    public void onRightClick(EntityPlayer playerClicking, World world, ItemStack item) {
 
-            }
-            if (target.dimension == 1)
+        if ((playerClicking.ridingEntity == null) && (playerClicking.riddenByEntity == null) && ((playerClicking instanceof EntityPlayerMP)))
+        {
+            EntityPlayerMP thePlayer = (EntityPlayerMP)playerClicking;
+            if (thePlayer.dimension != -1)
             {
-                if ((target instanceof EntityPlayer)) {
-                    ((EntityPlayer)target).addChatMessage("Nothing happens...");
-                }
-
+                thePlayer.setLocationAndAngles(0.5D, thePlayer.posY, 0.5D, thePlayer.rotationYaw, thePlayer.rotationPitch);
+                thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, -1, new MPSATeleporter(thePlayer.mcServer.worldServerForDimension(-1)));
             }
-            if (target.dimension != -1)
+            else if (thePlayer.dimension == -1 || thePlayer.dimension == 1)
             {
-                ChunkCoordinates coords = (target instanceof EntityPlayer) ? ((EntityPlayer)target).getBedLocation(target.dimension) : null;
-                if ((coords == null) || ((coords.posX == 0) && (coords.posY == 0) && (coords.posZ == 0))) {
-                    coords = world.getSpawnPoint();
-                }
-                int yPos = coords.posY;
-                while ((world.getBlockId(coords.posX, yPos, coords.posZ) != 0) && (world.getBlockId(coords.posX, yPos + 1, coords.posZ) != 0)) {
-                    yPos++;
-                }
-                ((EntityLivingBase)target).setPositionAndUpdate(coords.posX + 0.5D, yPos, coords.posZ + 0.5D);
+                if (!world.isRemote){
+                MinecraftServer.getServerConfigurationManager(MinecraftServer.getServer()).respawnPlayer((EntityPlayerMP) thePlayer, 0, true);
             }
-            else if (target.dimension == -1)
-            {
-                DimensionUtilities.doDimensionTransfer((EntityLivingBase) target, 0);
             }
-
+            ElectricItemUtils.drainPlayerEnergy(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_ENERGY_GENERATION));
+            MuseHeatUtils.heatPlayer(thePlayer, ModuleManager.computeModularProperty(item, DIMENSIONAL_RIFT_HEAT_GENERATION));
         }
+
     }
 
     @Override
-    public void onPlayerTickInactive(EntityPlayer player, ItemStack item) {
+    public void onItemUse(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+
+    }
+
+    @Override
+    public boolean onItemUseFirst(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+        return false;
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int par4) {
+
     }
 }
