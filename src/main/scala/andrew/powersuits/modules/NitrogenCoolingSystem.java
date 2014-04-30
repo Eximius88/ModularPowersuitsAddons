@@ -28,6 +28,10 @@ public class NitrogenCoolingSystem extends PowerModuleBase implements IPlayerTic
 
     public NitrogenCoolingSystem(List<IModularItem> validItems) {
         super(validItems);
+<<<<<<< HEAD
+=======
+        //addInstallCost(new ItemStack(Item.netherStar, 1));
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.liquidNitrogen, 1));
         addInstallCost(MuseItemUtils.copyAndResize(AddonComponent.rubberHose, 2));
         addInstallCost(MuseItemUtils.copyAndResize(ItemComponent.controlCircuit, 1));

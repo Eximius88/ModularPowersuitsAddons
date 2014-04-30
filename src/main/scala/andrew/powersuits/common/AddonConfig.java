@@ -43,9 +43,15 @@ public class AddonConfig extends Config {
         config.save();
     }
 
+<<<<<<< HEAD
    /* public static void addModule(IPowerModule module) {
         ModuleManager.addModule(module);
     }*/
+=======
+    public static void addModule(IPowerModule module) {
+        ModuleManager.addModule(module);
+    }
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
 
     public static void loadPowerModules() {
@@ -77,10 +83,14 @@ public class AddonConfig extends Config {
         //addModule(new CoalGenerator(TORSOONLY));
         addModule(new NitrogenCoolingSystem(TORSOONLY));
         addModule(new MechanicalAssistance(TORSOONLY));
+<<<<<<< HEAD
         //addModule(new RedstonePulser(TOOLONLY));
 
         if (AddonConfig.useDebugMode){
         addModule(new DebugModule(TOOLONLY));}
+=======
+
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
         if (Loader.isModLoaded("AppliedEnergistics")) {
             addModule(new AppEngWirelessModule(TOOLONLY));
@@ -109,7 +119,11 @@ public class AddonConfig extends Config {
     }
 
     public static void setConfigFolderBase(File folder) {
+<<<<<<< HEAD
         configFolder = new File(folder.getAbsolutePath() + "/machinemuse");
+=======
+        configFolder = new File(folder.getAbsolutePath() + "/machinemuse/andrew");
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
     }
 
     public static void initItems() {

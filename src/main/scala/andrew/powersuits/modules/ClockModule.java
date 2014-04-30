@@ -2,8 +2,11 @@ package andrew.powersuits.modules;
 
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.moduletrigger.IToggleableModule;
+<<<<<<< HEAD
 import net.machinemuse.general.gui.clickable.Clickable;
 import net.machinemuse.general.gui.clickable.ClickableButton;
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 import net.machinemuse.powersuits.item.ItemComponent;
 import net.machinemuse.powersuits.powermodule.PowerModuleBase;
 import net.machinemuse.utils.MuseCommonStrings;
@@ -23,8 +26,11 @@ public class ClockModule extends PowerModuleBase implements IToggleableModule {
 
     public static final String MODULE_CLOCK = "Clock";
     public static ItemStack clock = new ItemStack(Item.pocketSundial);
+<<<<<<< HEAD
     final boolean useNumbers = false;
 
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
     public ClockModule(List<IModularItem> validItems) {
         super(validItems);

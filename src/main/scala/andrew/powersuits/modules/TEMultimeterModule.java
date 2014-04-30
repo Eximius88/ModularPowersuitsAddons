@@ -1,17 +1,40 @@
 package andrew.powersuits.modules;
 
+<<<<<<< HEAD
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.moduletrigger.IRightClickModule;
+=======
+import andrew.powersuits.common.AddonLogger;
+import andrew.powersuits.common.AddonUtils;
+import cofh.api.tileentity.ITileInfo;
+import cofh.api.block.IBlockDebug;
+import cofh.api.block.IBlockInfo;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.machinemuse.api.IModularItem;
+import net.machinemuse.api.moduletrigger.IRightClickModule;
+import net.machinemuse.powersuits.common.ModCompatability;
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 import net.machinemuse.powersuits.item.ItemComponent;
 import net.machinemuse.powersuits.powermodule.PowerModuleBase;
 import net.machinemuse.utils.MuseCommonStrings;
 import net.machinemuse.utils.MuseItemUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+<<<<<<< HEAD
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+=======
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+
+import java.util.ArrayList;
+
+import net.minecraft.item.Item;
+
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 import java.util.List;
 
 /**

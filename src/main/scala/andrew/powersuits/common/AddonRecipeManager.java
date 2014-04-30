@@ -10,7 +10,10 @@ import net.machinemuse.powersuits.item.ItemComponent;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+<<<<<<< HEAD
 import net.minecraft.item.crafting.FurnaceRecipes;
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -46,6 +49,7 @@ public class AddonRecipeManager {
         ItemStack leather = new ItemStack(Item.leather);
         ItemStack rottenFlesh = new ItemStack(Item.rottenFlesh);
         ItemStack sugar = new ItemStack(Item.sugar);
+<<<<<<< HEAD
         ItemStack waterBucket = new ItemStack(Item.bucketWater);
         ItemStack Ice = new ItemStack(Block.ice);
         ItemStack Wool = new ItemStack(Block.cloth);
@@ -63,6 +67,8 @@ public class AddonRecipeManager {
         GameRegistry.addRecipe(new ShapedOreRecipe(ItemComponent.myofiberGel, true, "WMW", " M ", "WMW", 'W', waterBucket, 'M', MagmaCream));
         GameRegistry.addRecipe(new ShapedOreRecipe(ItemComponent.artificialMuscle ,true, " M ", "MGM", " M ", 'M', ItemComponent.carbonMyofiber, 'G', ItemComponent.myofiberGel));
 
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
 
         if (ModCompatability.vanillaRecipesEnabled()) {
@@ -71,7 +77,10 @@ public class AddonRecipeManager {
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.solarPanel, true, "PPP", "PLP", "PPP", 'P', glassPane, 'L', lapisBlock));
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.magnet, true, "III", "SSS", "III", 'I', ironIngot, 'S', ItemComponent.solenoid));
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.computerChip, true, "RCR", "GDG", 'R', redstoneBlock, 'C', comparator, 'G', goldIngot, 'D', diamond));
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
             //===========================================================================================================================
         }
 
@@ -105,13 +114,19 @@ public class AddonRecipeManager {
             ItemStack ovscanner = ModCompatability.getIC2Item("ovScanner");
             ovscanner.setItemDamage(1);
             ItemStack goldCable = ModCompatability.getIC2Item("insulatedGoldCableItem");
+<<<<<<< HEAD
             ItemStack rubber = ModCompatability.getIC2Item("rubber");
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
             //===========================================================================================================================
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.solarPanel, true, "LGL", "GLG", "CBC", 'L', lapis, 'G', glass, 'C', circuit, 'B', gen));
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.magnet, "ICI", "SSS", "ICI", 'I', ironIngot, 'C', advCircuit, 'S', ItemComponent.solenoid));
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.computerChip, "CSC", "GGG", 'C', advCircuit, 'S', ovscanner, 'G', goldCable));
+<<<<<<< HEAD
             GameRegistry.addRecipe(new ShapedOreRecipe(AddonComponent.rubberHose, "RRR", "G G", "RRR", 'R', rubber, 'G', glass));
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
             //===========================================================================================================================
         }
 

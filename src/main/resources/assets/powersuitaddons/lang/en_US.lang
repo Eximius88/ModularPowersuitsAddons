@@ -6,7 +6,10 @@ item.powerArmorComponent.componentMagnet.name = Magnet
 item.powerArmorComponent.componentComputerChip.name = Computer Chip
 item.powerArmorComponent.componentLiquidNitrogen.name = Liquid Nitrogen Bucket
 item.powerArmorComponent.componentRubberHose.name = Insulated Rubber Hose
+<<<<<<< HEAD
 item.powerArmorComponent.componentRawCarbon.name = Raw Carbon
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
 module.portableCraftingTable.name = In-Place Assembler
 module.kineticGenerator.name = Kinetic Generator

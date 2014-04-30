@@ -1,7 +1,14 @@
 package andrew.powersuits.modules;
 
+<<<<<<< HEAD
 
 import ic2.api.energy.EnergyNet;
+=======
+import andrew.powersuits.common.AddonUtils;
+import cpw.mods.fml.common.FMLCommonHandler;
+import ic2.api.energy.EnergyNet;
+import ic2.api.energy.IEnergyNet;
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 import ic2.api.energy.tile.IEnergyConductor;
 import ic2.api.energy.tile.IEnergySink;
 import ic2.api.energy.tile.IEnergySource;
@@ -20,7 +27,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+<<<<<<< HEAD
 
+=======
+import net.minecraftforge.common.ForgeDirection;
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
 import java.text.DecimalFormat;
 import java.util.List;

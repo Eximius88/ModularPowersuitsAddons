@@ -117,7 +117,11 @@ public class MagnetModule extends PowerModuleBase implements IPlayerTickModule, 
                     }
                     if (world.rand.nextInt(20) == 0) {
                         float pitch = 0.85F - world.rand.nextFloat() * 3.0F / 10.0F;
+<<<<<<< HEAD
                         //world.playSoundEffect(e.posX, e.posY, e.posZ, "mob.endermen.portal", 0.6F, pitch);
+=======
+                        world.playSoundEffect(e.posX, e.posY, e.posZ, "mob.endermen.portal", 0.6F, pitch);
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
                     }
                 }
             }

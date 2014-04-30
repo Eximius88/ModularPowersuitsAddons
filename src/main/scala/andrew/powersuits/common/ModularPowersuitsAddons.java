@@ -42,8 +42,13 @@ public class ModularPowersuitsAddons {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         INSTANCE = this;
+<<<<<<< HEAD
        File oldConfig = event.getSuggestedConfigurationFile();
         File newConfig = new File(event.getModConfigurationDirectory() + "/machinemuse/powersuitaddons.cfg");
+=======
+        File oldConfig = event.getSuggestedConfigurationFile();
+        File newConfig = new File(event.getModConfigurationDirectory() + "/machinemuse/andrew/PowersuitsAddons.cfg");
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
         if (oldConfig.exists()) {
             try {
                 MuseFileUtils.copyFile(oldConfig, newConfig);
@@ -70,7 +75,10 @@ public class ModularPowersuitsAddons {
         NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
         AddonRecipeManager.cheatyLeather();
         TerminalHandler.registerHandler();
+<<<<<<< HEAD
         AddonConfig.loadPowerModules();
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
 
     }
@@ -79,7 +87,11 @@ public class ModularPowersuitsAddons {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         AddonRecipeManager.addRecipes();
+<<<<<<< HEAD
 
+=======
+        AddonConfig.loadPowerModules();
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
 
         AddonConfig.getConfig().save();
 
