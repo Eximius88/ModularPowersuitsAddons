@@ -1,0 +1,33 @@
+Made by users: Andrew2448
+Last edited on 6/25/13 8:51PM EST
+
+item.powerArmorComponent.componentSolarPanel.name = Solar Panel
+item.powerArmorComponent.componentMagnet.name = Magnet
+item.powerArmorComponent.componentComputerChip.name = Computer Chip
+item.powerArmorComponent.componentLiquidNitrogen.name = Liquid Nitrogen Bucket
+item.powerArmorComponent.componentRubberHose.name = Insulated Rubber Hose
+item.powerArmorComponent.componentRawCarbon.name = Raw Carbon
+
+module.portableCraftingTable.name = In-Place Assembler
+module.kineticGenerator.name = Kinetic Generator
+module.solarGenerator.name = Solar Generator
+module.thermalGenerator.name = Thermal Generator
+module.autoFeeder.name = Auto-Feeder
+module.magnet.name = Magnet
+module.oreScanner.name = Ore Scanner
+module.leafBlower.name = Leaf Blower
+module.mobRepulsor.name = Mob Repulsor
+module.flintAndSteel.name = Flint and Steel
+module.clock.name = Clock
+module.compass.name = Compass
+module.lightningSummoner.name = Lightning Summoner
+module.waterTank.name = Water Tank
+module.euReader.name = EU Reader
+module.treetap.name = Treetap
+module.teMultimeter.name = TE Multimeter
+module.torchPlacer.name = Torch Placer
+module.appengWireless.name = AppEng Wireless Terminal
+module.bucket.name = Bucket
+module.advSolarGenerator.name = High Efficiency Solar Generator
+module.nitrogenCoolingSystem.name = Liquid Nitrogen Cooling System
+module.mechAssistance.name = Mechanical Assistance
