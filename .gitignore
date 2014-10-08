@@ -1,0 +1,13 @@
+/*
+!/src
+!/mcmod.info
+!/MODLICENSE.txt
+!/.gitignore
+!/.gitattributes
+!/Changelog.txt
+!/README.md
+.gradle/
+build/
+eclipse/
+gradle/
+libs/
