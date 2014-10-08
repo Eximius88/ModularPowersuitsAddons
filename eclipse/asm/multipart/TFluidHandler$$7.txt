@@ -1,0 +1,53 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TFluidHandler$$7 implements net/minecraftforge/fluids/IFluidHandler  {
+
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$impl()Lnet/minecraftforge/fluids/IFluidHandler;
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$impl_$eq(Lnet/minecraftforge/fluids/IFluidHandler;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract getTankInfo(Lnet/minecraftforge/common/util/ForgeDirection;)[Lnet/minecraftforge/fluids/FluidTankInfo;
+
+  // access flags 0x401
+  public abstract drain(Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraftforge/fluids/FluidStack;Z)Lnet/minecraftforge/fluids/FluidStack;
+
+  // access flags 0x401
+  public abstract fill(Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraftforge/fluids/FluidStack;Z)I
+
+  // access flags 0x401
+  public abstract drain(Lnet/minecraftforge/common/util/ForgeDirection;IZ)Lnet/minecraftforge/fluids/FluidStack;
+
+  // access flags 0x401
+  public abstract canFill(Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraftforge/fluids/Fluid;)Z
+
+  // access flags 0x401
+  public abstract canDrain(Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraftforge/fluids/Fluid;)Z
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TFluidHandler$$7$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

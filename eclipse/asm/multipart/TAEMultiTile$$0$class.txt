@@ -1,0 +1,316 @@
+// class version 50.0 (50)
+// access flags 0x401
+public abstract class TAEMultiTile$$0$class {
+
+
+  // access flags 0x9
+  public static $init$(LTAEMultiTile$$0;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static bindPart(LTAEMultiTile$$0;Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$super$bindPart (Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 1
+    INSTANCEOF appeng/helpers/AEMultiTile
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    CHECKCAST appeng/helpers/AEMultiTile
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl_$eq (Lappeng/helpers/AEMultiTile;)V
+   L0
+   FRAME FULL [TAEMultiTile$$0 codechicken/multipart/TMultiPart] []
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static partRemoved(LTAEMultiTile$$0;Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$super$partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 1
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    IF_ACMPNE L0
+    ALOAD 0
+    ACONST_NULL
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl_$eq (Lappeng/helpers/AEMultiTile;)V
+   L0
+   FRAME FULL [TAEMultiTile$$0 codechicken/multipart/TMultiPart I] []
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static canAddPart(LTAEMultiTile$$0;Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    IFNULL L0
+    ALOAD 1
+    INSTANCEOF appeng/helpers/AEMultiTile
+    IFEQ L0
+    ICONST_0
+    IRETURN
+   L0
+   FRAME FULL [TAEMultiTile$$0 codechicken/multipart/TMultiPart] []
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$super$canAddPart (Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static hasRedstone(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.hasRedstone (Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static removePart(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;Z)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.removePart (Lnet/minecraftforge/common/util/ForgeDirection;Z)V
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static notifyNeighbors(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.notifyNeighbors ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static partChanged(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.partChanged ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isInWorld(LTAEMultiTile$$0;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.isInWorld ()Z
+    IRETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getTile(LTAEMultiTile$$0;)Lnet/minecraft/tileentity/TileEntity;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getTile ()Lnet/minecraft/tileentity/TileEntity;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getPart(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/parts/IPart;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getPart (Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/parts/IPart;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static selectPart(LTAEMultiTile$$0;Lnet/minecraft/util/Vec3;)Lappeng/api/parts/SelectedPart;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.selectPart (Lnet/minecraft/util/Vec3;)Lappeng/api/parts/SelectedPart;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static securityBreak(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.securityBreak ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getGridNode(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/networking/IGridNode;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getGridNode (Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/networking/IGridNode;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static getLayerFlags(LTAEMultiTile$$0;)Ljava/util/Set;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getLayerFlags ()Ljava/util/Set;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static addPart(LTAEMultiTile$$0;Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraftforge/common/util/ForgeDirection;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.addPart (Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraftforge/common/util/ForgeDirection;
+    ARETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static isEmpty(LTAEMultiTile$$0;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.isEmpty ()Z
+    IRETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getFacadeContainer(LTAEMultiTile$$0;)Lappeng/api/parts/IFacadeContainer;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getFacadeContainer ()Lappeng/api/parts/IFacadeContainer;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isBlocked(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.isBlocked (Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static getColor(LTAEMultiTile$$0;)Lappeng/api/util/AEColor;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getColor ()Lappeng/api/util/AEColor;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static cleanup(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.cleanup ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static clearContainer(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.clearContainer ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static canAddPart(LTAEMultiTile$$0;Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.canAddPart (Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static getLocation(LTAEMultiTile$$0;)Lappeng/api/util/DimensionalCoord;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getLocation ()Lappeng/api/util/DimensionalCoord;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static markForUpdate(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.markForUpdate ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static recolourBlock(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;Lappeng/api/util/AEColor;Lnet/minecraft/entity/player/EntityPlayer;)Z
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.recolourBlock (Lnet/minecraftforge/common/util/ForgeDirection;Lappeng/api/util/AEColor;Lnet/minecraft/entity/player/EntityPlayer;)Z
+    IRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static markForSave(LTAEMultiTile$$0;)V
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.markForSave ()V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getCableConnectionType(LTAEMultiTile$$0;Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/util/AECableType;
+    ALOAD 0
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    ALOAD 1
+    INVOKEINTERFACE appeng/helpers/AEMultiTile.getCableConnectionType (Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/util/AECableType;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static copyFrom(LTAEMultiTile$$0;Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$super$copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 1
+    INSTANCEOF TAEMultiTile$$0
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl ()Lappeng/helpers/AEMultiTile;
+    INVOKEINTERFACE TAEMultiTile$$0.TAEMultiTile$$0$$impl_$eq (Lappeng/helpers/AEMultiTile;)V
+   L0
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}

@@ -1,0 +1,94 @@
+// class version 50.0 (50)
+// access flags 0x401
+public abstract class TBatteryProvider$$1$class {
+
+
+  // access flags 0x9
+  public static $init$(LTBatteryProvider$$1;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static bindPart(LTBatteryProvider$$1;Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$super$bindPart (Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 1
+    INSTANCEOF buildcraft/api/mj/IBatteryProvider
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    CHECKCAST buildcraft/api/mj/IBatteryProvider
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl_$eq (Lbuildcraft/api/mj/IBatteryProvider;)V
+   L0
+   FRAME FULL [TBatteryProvider$$1 codechicken/multipart/TMultiPart] []
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static partRemoved(LTBatteryProvider$$1;Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$super$partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 1
+    ALOAD 0
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl ()Lbuildcraft/api/mj/IBatteryProvider;
+    IF_ACMPNE L0
+    ALOAD 0
+    ACONST_NULL
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl_$eq (Lbuildcraft/api/mj/IBatteryProvider;)V
+   L0
+   FRAME FULL [TBatteryProvider$$1 codechicken/multipart/TMultiPart I] []
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static canAddPart(LTBatteryProvider$$1;Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl ()Lbuildcraft/api/mj/IBatteryProvider;
+    IFNULL L0
+    ALOAD 1
+    INSTANCEOF buildcraft/api/mj/IBatteryProvider
+    IFEQ L0
+    ICONST_0
+    IRETURN
+   L0
+   FRAME FULL [TBatteryProvider$$1 codechicken/multipart/TMultiPart] []
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$super$canAddPart (Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static getMjBattery(LTBatteryProvider$$1;Ljava/lang/String;)Lbuildcraft/api/mj/IBatteryObject;
+    ALOAD 0
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl ()Lbuildcraft/api/mj/IBatteryProvider;
+    ALOAD 1
+    INVOKEINTERFACE buildcraft/api/mj/IBatteryProvider.getMjBattery (Ljava/lang/String;)Lbuildcraft/api/mj/IBatteryObject;
+    ARETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static copyFrom(LTBatteryProvider$$1;Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$super$copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 1
+    INSTANCEOF TBatteryProvider$$1
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl ()Lbuildcraft/api/mj/IBatteryProvider;
+    INVOKEINTERFACE TBatteryProvider$$1.TBatteryProvider$$1$$impl_$eq (Lbuildcraft/api/mj/IBatteryProvider;)V
+   L0
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}

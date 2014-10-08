@@ -1,0 +1,408 @@
+// class version 50.0 (50)
+// access flags 0x401
+public abstract class codechicken/multipart/scalatraits/JInventoryTile$class {
+
+  // compiled from: TIInventoryTile.scala
+
+  // access flags 0x9
+  public static invList(Lcodechicken/multipart/scalatraits/JInventoryTile;)Ljava/util/LinkedList;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$invList ()Ljava/util/LinkedList;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static invList_$eq(Lcodechicken/multipart/scalatraits/JInventoryTile;Ljava/util/LinkedList;)V
+  @Lscala/runtime/TraitSetter;()
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$invList_$eq (Ljava/util/LinkedList;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE x$1 Ljava/util/LinkedList; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static slotMap(Lcodechicken/multipart/scalatraits/JInventoryTile;)[Lscala/Tuple2;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$slotMap ()[Lscala/Tuple2;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static slotMap_$eq(Lcodechicken/multipart/scalatraits/JInventoryTile;[Lscala/Tuple2;)V
+  @Lscala/runtime/TraitSetter;()
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$slotMap_$eq ([Lscala/Tuple2;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE x$1 [Lscala/Tuple2; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static codechicken$multipart$scalatraits$TIInventoryTile$$super$copyFrom(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TileMultipart;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$super$copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE that Lcodechicken/multipart/TileMultipart; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static codechicken$multipart$scalatraits$TIInventoryTile$$super$bindPart(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TMultiPart;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$super$bindPart (Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE part Lcodechicken/multipart/TMultiPart; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static codechicken$multipart$scalatraits$TIInventoryTile$$super$partRemoved(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TMultiPart;I)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$super$partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE part Lcodechicken/multipart/TMultiPart; L0 L1 1
+    LOCALVARIABLE p I L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static codechicken$multipart$scalatraits$TIInventoryTile$$super$clearParts(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKEINTERFACE codechicken/multipart/scalatraits/JInventoryTile.codechicken$multipart$scalatraits$JInventoryTile$$super$clearParts ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static copyFrom(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TileMultipart;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.copyFrom (Lcodechicken/multipart/scalatraits/TIInventoryTile;Lcodechicken/multipart/TileMultipart;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE that Lcodechicken/multipart/TileMultipart; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static bindPart(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TMultiPart;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.bindPart (Lcodechicken/multipart/scalatraits/TIInventoryTile;Lcodechicken/multipart/TMultiPart;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE part Lcodechicken/multipart/TMultiPart; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static partRemoved(Lcodechicken/multipart/scalatraits/JInventoryTile;Lcodechicken/multipart/TMultiPart;I)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.partRemoved (Lcodechicken/multipart/scalatraits/TIInventoryTile;Lcodechicken/multipart/TMultiPart;I)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE part Lcodechicken/multipart/TMultiPart; L0 L1 1
+    LOCALVARIABLE p I L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static clearParts(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.clearParts (Lcodechicken/multipart/scalatraits/TIInventoryTile;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static rebuildSlotMap(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.rebuildSlotMap (Lcodechicken/multipart/scalatraits/TIInventoryTile;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getSizeInventory(Lcodechicken/multipart/scalatraits/JInventoryTile;)I
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getSizeInventory (Lcodechicken/multipart/scalatraits/TIInventoryTile;)I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getStackInSlot(Lcodechicken/multipart/scalatraits/JInventoryTile;I)Lnet/minecraft/item/ItemStack;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getStackInSlot (Lcodechicken/multipart/scalatraits/TIInventoryTile;I)Lnet/minecraft/item/ItemStack;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static decrStackSize(Lcodechicken/multipart/scalatraits/JInventoryTile;II)Lnet/minecraft/item/ItemStack;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.decrStackSize (Lcodechicken/multipart/scalatraits/TIInventoryTile;II)Lnet/minecraft/item/ItemStack;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE j I L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static getStackInSlotOnClosing(Lcodechicken/multipart/scalatraits/JInventoryTile;I)Lnet/minecraft/item/ItemStack;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getStackInSlotOnClosing (Lcodechicken/multipart/scalatraits/TIInventoryTile;I)Lnet/minecraft/item/ItemStack;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static setInventorySlotContents(Lcodechicken/multipart/scalatraits/JInventoryTile;ILnet/minecraft/item/ItemStack;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    ALOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.setInventorySlotContents (Lcodechicken/multipart/scalatraits/TIInventoryTile;ILnet/minecraft/item/ItemStack;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE itemstack Lnet/minecraft/item/ItemStack; L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static getInventoryName(Lcodechicken/multipart/scalatraits/JInventoryTile;)Ljava/lang/String;
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getInventoryName (Lcodechicken/multipart/scalatraits/TIInventoryTile;)Ljava/lang/String;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static hasCustomInventoryName(Lcodechicken/multipart/scalatraits/JInventoryTile;)Z
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.hasCustomInventoryName (Lcodechicken/multipart/scalatraits/TIInventoryTile;)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static getInventoryStackLimit(Lcodechicken/multipart/scalatraits/JInventoryTile;)I
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getInventoryStackLimit (Lcodechicken/multipart/scalatraits/TIInventoryTile;)I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isUseableByPlayer(Lcodechicken/multipart/scalatraits/JInventoryTile;Lnet/minecraft/entity/player/EntityPlayer;)Z
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.isUseableByPlayer (Lcodechicken/multipart/scalatraits/TIInventoryTile;Lnet/minecraft/entity/player/EntityPlayer;)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE entityplayer Lnet/minecraft/entity/player/EntityPlayer; L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static openInventory(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.openInventory (Lcodechicken/multipart/scalatraits/TIInventoryTile;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static closeInventory(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.closeInventory (Lcodechicken/multipart/scalatraits/TIInventoryTile;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static isItemValidForSlot(Lcodechicken/multipart/scalatraits/JInventoryTile;ILnet/minecraft/item/ItemStack;)Z
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    ALOAD 2
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.isItemValidForSlot (Lcodechicken/multipart/scalatraits/TIInventoryTile;ILnet/minecraft/item/ItemStack;)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE itemstack Lnet/minecraft/item/ItemStack; L0 L1 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static getAccessibleSlotsFromSide(Lcodechicken/multipart/scalatraits/JInventoryTile;I)[I
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.getAccessibleSlotsFromSide (Lcodechicken/multipart/scalatraits/TIInventoryTile;I)[I
+    ARETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE side I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static canInsertItem(Lcodechicken/multipart/scalatraits/JInventoryTile;ILnet/minecraft/item/ItemStack;I)Z
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    ALOAD 2
+    ILOAD 3
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.canInsertItem (Lcodechicken/multipart/scalatraits/TIInventoryTile;ILnet/minecraft/item/ItemStack;I)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE itemstack Lnet/minecraft/item/ItemStack; L0 L1 2
+    LOCALVARIABLE j I L0 L1 3
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static canExtractItem(Lcodechicken/multipart/scalatraits/JInventoryTile;ILnet/minecraft/item/ItemStack;I)Z
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    ILOAD 1
+    ALOAD 2
+    ILOAD 3
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.canExtractItem (Lcodechicken/multipart/scalatraits/TIInventoryTile;ILnet/minecraft/item/ItemStack;I)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    LOCALVARIABLE i I L0 L1 1
+    LOCALVARIABLE itemstack Lnet/minecraft/item/ItemStack; L0 L1 2
+    LOCALVARIABLE j I L0 L1 3
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static $init$(Lcodechicken/multipart/scalatraits/JInventoryTile;)V
+   L0
+    LINENUMBER 131 L0
+    ALOAD 0
+    INVOKESTATIC codechicken/multipart/scalatraits/TIInventoryTile$class.$init$ (Lcodechicken/multipart/scalatraits/TIInventoryTile;)V
+    RETURN
+   L1
+    LOCALVARIABLE this Lcodechicken/multipart/scalatraits/JInventoryTile; L0 L1 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+}

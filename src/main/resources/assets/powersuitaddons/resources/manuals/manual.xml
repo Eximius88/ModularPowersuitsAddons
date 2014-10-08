@@ -1,0 +1,26 @@
+<book>
+	<page type="intro">
+		<text> 
+		MPS Manual
+		Tips and Tricks
+		</text>
+	</page>
+	
+	<page type="contents">
+		<text>Table of Contents</text>
+		<link>
+			<text>Getting Started</text>
+			<jump>3</jump>
+		</link>
+		<link>
+			<text>Information</text>
+			<jump>3</jump>
+		</link>
+	</page>
+	
+	<page type="text">
+		<text>
+		Welcome to my boring page of nothingness
+		</text>
+	</page>
+</book>

@@ -1,0 +1,107 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TAEMultiTile$$0 implements appeng/helpers/AEMultiTile  {
+
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$impl()Lappeng/helpers/AEMultiTile;
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$impl_$eq(Lappeng/helpers/AEMultiTile;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract hasRedstone(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+
+  // access flags 0x401
+  public abstract removePart(Lnet/minecraftforge/common/util/ForgeDirection;Z)V
+
+  // access flags 0x401
+  public abstract notifyNeighbors()V
+
+  // access flags 0x401
+  public abstract partChanged()V
+
+  // access flags 0x401
+  public abstract isInWorld()Z
+
+  // access flags 0x401
+  public abstract getTile()Lnet/minecraft/tileentity/TileEntity;
+
+  // access flags 0x401
+  public abstract getPart(Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/parts/IPart;
+
+  // access flags 0x401
+  public abstract selectPart(Lnet/minecraft/util/Vec3;)Lappeng/api/parts/SelectedPart;
+
+  // access flags 0x401
+  public abstract securityBreak()V
+
+  // access flags 0x401
+  public abstract getGridNode(Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/networking/IGridNode;
+
+  // access flags 0x401
+  public abstract getLayerFlags()Ljava/util/Set;
+
+  // access flags 0x401
+  public abstract addPart(Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;Lnet/minecraft/entity/player/EntityPlayer;)Lnet/minecraftforge/common/util/ForgeDirection;
+
+  // access flags 0x401
+  public abstract isEmpty()Z
+
+  // access flags 0x401
+  public abstract getFacadeContainer()Lappeng/api/parts/IFacadeContainer;
+
+  // access flags 0x401
+  public abstract isBlocked(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+
+  // access flags 0x401
+  public abstract getColor()Lappeng/api/util/AEColor;
+
+  // access flags 0x401
+  public abstract cleanup()V
+
+  // access flags 0x401
+  public abstract clearContainer()V
+
+  // access flags 0x401
+  public abstract canAddPart(Lnet/minecraft/item/ItemStack;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+
+  // access flags 0x401
+  public abstract getLocation()Lappeng/api/util/DimensionalCoord;
+
+  // access flags 0x401
+  public abstract markForUpdate()V
+
+  // access flags 0x401
+  public abstract recolourBlock(Lnet/minecraftforge/common/util/ForgeDirection;Lappeng/api/util/AEColor;Lnet/minecraft/entity/player/EntityPlayer;)Z
+
+  // access flags 0x401
+  public abstract markForSave()V
+
+  // access flags 0x401
+  public abstract getCableConnectionType(Lnet/minecraftforge/common/util/ForgeDirection;)Lappeng/api/util/AECableType;
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TAEMultiTile$$0$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

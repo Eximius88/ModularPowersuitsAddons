@@ -1,0 +1,38 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TBatteryProvider$$1 implements buildcraft/api/mj/IBatteryProvider  {
+
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$impl()Lbuildcraft/api/mj/IBatteryProvider;
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$impl_$eq(Lbuildcraft/api/mj/IBatteryProvider;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract getMjBattery(Ljava/lang/String;)Lbuildcraft/api/mj/IBatteryObject;
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TBatteryProvider$$1$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

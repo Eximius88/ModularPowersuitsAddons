@@ -1,0 +1,38 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TTileStorageMonitorable$$6 implements appeng/api/implementations/tiles/ITileStorageMonitorable  {
+
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$impl()Lappeng/api/implementations/tiles/ITileStorageMonitorable;
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$impl_$eq(Lappeng/api/implementations/tiles/ITileStorageMonitorable;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract getMonitorable(Lnet/minecraftforge/common/util/ForgeDirection;Lappeng/api/networking/security/BaseActionSource;)Lappeng/api/storage/IStorageMonitorable;
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TTileStorageMonitorable$$6$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

@@ -1,0 +1,95 @@
+// class version 50.0 (50)
+// access flags 0x401
+public abstract class TPipeConnection$$3$class {
+
+
+  // access flags 0x9
+  public static $init$(LTPipeConnection$$3;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static bindPart(LTPipeConnection$$3;Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$super$bindPart (Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 1
+    INSTANCEOF buildcraft/api/transport/IPipeConnection
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    CHECKCAST buildcraft/api/transport/IPipeConnection
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl_$eq (Lbuildcraft/api/transport/IPipeConnection;)V
+   L0
+   FRAME FULL [TPipeConnection$$3 codechicken/multipart/TMultiPart] []
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static partRemoved(LTPipeConnection$$3;Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$super$partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 1
+    ALOAD 0
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl ()Lbuildcraft/api/transport/IPipeConnection;
+    IF_ACMPNE L0
+    ALOAD 0
+    ACONST_NULL
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl_$eq (Lbuildcraft/api/transport/IPipeConnection;)V
+   L0
+   FRAME FULL [TPipeConnection$$3 codechicken/multipart/TMultiPart I] []
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static canAddPart(LTPipeConnection$$3;Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl ()Lbuildcraft/api/transport/IPipeConnection;
+    IFNULL L0
+    ALOAD 1
+    INSTANCEOF buildcraft/api/transport/IPipeConnection
+    IFEQ L0
+    ICONST_0
+    IRETURN
+   L0
+   FRAME FULL [TPipeConnection$$3 codechicken/multipart/TMultiPart] []
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$super$canAddPart (Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static overridePipeConnection(LTPipeConnection$$3;Lbuildcraft/api/transport/IPipeTile$PipeType;Lnet/minecraftforge/common/util/ForgeDirection;)Lbuildcraft/api/transport/IPipeConnection$ConnectOverride;
+    ALOAD 0
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl ()Lbuildcraft/api/transport/IPipeConnection;
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE buildcraft/api/transport/IPipeConnection.overridePipeConnection (Lbuildcraft/api/transport/IPipeTile$PipeType;Lnet/minecraftforge/common/util/ForgeDirection;)Lbuildcraft/api/transport/IPipeConnection$ConnectOverride;
+    ARETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static copyFrom(LTPipeConnection$$3;Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$super$copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 1
+    INSTANCEOF TPipeConnection$$3
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl ()Lbuildcraft/api/transport/IPipeConnection;
+    INVOKEINTERFACE TPipeConnection$$3.TPipeConnection$$3$$impl_$eq (Lbuildcraft/api/transport/IPipeConnection;)V
+   L0
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}

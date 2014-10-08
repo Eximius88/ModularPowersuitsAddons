@@ -1,0 +1,138 @@
+// class version 50.0 (50)
+// access flags 0x401
+public abstract class TEnergyHandler$$8$class {
+
+
+  // access flags 0x9
+  public static $init$(LTEnergyHandler$$8;)V
+    RETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x9
+  public static bindPart(LTEnergyHandler$$8;Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$super$bindPart (Lcodechicken/multipart/TMultiPart;)V
+    ALOAD 1
+    INSTANCEOF cofh/api/energy/IEnergyHandler
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    CHECKCAST cofh/api/energy/IEnergyHandler
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl_$eq (Lcofh/api/energy/IEnergyHandler;)V
+   L0
+   FRAME FULL [TEnergyHandler$$8 codechicken/multipart/TMultiPart] []
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static partRemoved(LTEnergyHandler$$8;Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 0
+    ALOAD 1
+    ILOAD 2
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$super$partRemoved (Lcodechicken/multipart/TMultiPart;I)V
+    ALOAD 1
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    IF_ACMPNE L0
+    ALOAD 0
+    ACONST_NULL
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl_$eq (Lcofh/api/energy/IEnergyHandler;)V
+   L0
+   FRAME FULL [TEnergyHandler$$8 codechicken/multipart/TMultiPart I] []
+    RETURN
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x9
+  public static canAddPart(LTEnergyHandler$$8;Lcodechicken/multipart/TMultiPart;)Z
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    IFNULL L0
+    ALOAD 1
+    INSTANCEOF cofh/api/energy/IEnergyHandler
+    IFEQ L0
+    ICONST_0
+    IRETURN
+   L0
+   FRAME FULL [TEnergyHandler$$8 codechicken/multipart/TMultiPart] []
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$super$canAddPart (Lcodechicken/multipart/TMultiPart;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static getEnergyStored(LTEnergyHandler$$8;Lnet/minecraftforge/common/util/ForgeDirection;)I
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 1
+    INVOKEINTERFACE cofh/api/energy/IEnergyHandler.getEnergyStored (Lnet/minecraftforge/common/util/ForgeDirection;)I
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static extractEnergy(LTEnergyHandler$$8;Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKEINTERFACE cofh/api/energy/IEnergyHandler.extractEnergy (Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    IRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static canConnectEnergy(LTEnergyHandler$$8;Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 1
+    INVOKEINTERFACE cofh/api/energy/IEnergyHandler.canConnectEnergy (Lnet/minecraftforge/common/util/ForgeDirection;)Z
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static receiveEnergy(LTEnergyHandler$$8;Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 1
+    ILOAD 2
+    ILOAD 3
+    INVOKEINTERFACE cofh/api/energy/IEnergyHandler.receiveEnergy (Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+    IRETURN
+    MAXSTACK = 4
+    MAXLOCALS = 4
+
+  // access flags 0x9
+  public static getMaxEnergyStored(LTEnergyHandler$$8;Lnet/minecraftforge/common/util/ForgeDirection;)I
+    ALOAD 0
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    ALOAD 1
+    INVOKEINTERFACE cofh/api/energy/IEnergyHandler.getMaxEnergyStored (Lnet/minecraftforge/common/util/ForgeDirection;)I
+    IRETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x9
+  public static copyFrom(LTEnergyHandler$$8;Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$super$copyFrom (Lcodechicken/multipart/TileMultipart;)V
+    ALOAD 1
+    INSTANCEOF TEnergyHandler$$8
+    IFEQ L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl ()Lcofh/api/energy/IEnergyHandler;
+    INVOKEINTERFACE TEnergyHandler$$8.TEnergyHandler$$8$$impl_$eq (Lcofh/api/energy/IEnergyHandler;)V
+   L0
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 2
+}

@@ -1,0 +1,44 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TPowerReceptor$$2 implements buildcraft/api/power/IPowerReceptor  {
+
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$impl()Lbuildcraft/api/power/IPowerReceptor;
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$impl_$eq(Lbuildcraft/api/power/IPowerReceptor;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract getPowerReceiver(Lnet/minecraftforge/common/util/ForgeDirection;)Lbuildcraft/api/power/PowerHandler$PowerReceiver;
+
+  // access flags 0x401
+  public abstract doWork(Lbuildcraft/api/power/PowerHandler;)V
+
+  // access flags 0x401
+  public abstract getWorld()Lnet/minecraft/world/World;
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TPowerReceptor$$2$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

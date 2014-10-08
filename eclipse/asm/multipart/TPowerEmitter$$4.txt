@@ -1,0 +1,38 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TPowerEmitter$$4 implements buildcraft/api/power/IPowerEmitter  {
+
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$impl()Lbuildcraft/api/power/IPowerEmitter;
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$impl_$eq(Lbuildcraft/api/power/IPowerEmitter;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract canEmitPowerFrom(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TPowerEmitter$$4$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

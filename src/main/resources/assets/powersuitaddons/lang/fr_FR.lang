@@ -1,0 +1,28 @@
+Made by users: solomon56
+Last edited on 7/28/13 12:32AM PST
+
+item.powerArmorComponent.componentSolarPanel.name = Panneau Solaire
+item.powerArmorComponent.componentMagnet.name = Aimant
+item.powerArmorComponent.componentComputerChip.name = Puce informatique
+
+module.portableCraftingTable.name = Poche Tableau Artisanat
+module.kineticGenerator.name = Générateur Cinétique
+module.solarGenerator.name = Générateur Solaire
+module.thermalGenerator.name = Générateur Thermique
+module.autoFeeder.name = Nourriture-Automatique
+module.magnet.name = Aimant
+module.oreScanner.name = Scanneur des Minerais
+module.leafBlower.name = Ventilateur de Feuille
+module.mobRepulsor.name = Mob Repulsor
+module.flintAndSteel.name = Briquet
+module.clock.name = Montre
+module.compass.name = Boussole
+module.lightningSummoner.name = Porteur de la Foudre
+module.waterTank.name = Réservoir d'eau
+module.euReader.name =  Interpréter d'EU
+module.treetap.name = Sève prise
+module.teMultimeter.name = Multimètre de TE
+module.torchPlacer.name = Faiseur de Feu
+module.appengWireless.name = Terminal sans fil d'AppEng
+module.bucket.name = Seau
+

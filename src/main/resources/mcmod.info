@@ -1,0 +1,16 @@
+[{
+    "modid": "powersuitaddons",
+    "name": "Modular Powersuits Addon",
+    "description": "A mod which expands on Modular Powersuits' module options",
+    "version": "884",
+    "mcversion": "1.6.4",
+    "url": "http://www.machinemuse.net/",
+    "updateUrl": "",
+    "authors": [ "Andrew2448, Eximius88" ],
+    "credits": "Code by Andrew2448, Help by MachineMuse and #minecraftforge, and some excellent textures by X-wing9. Also thanks to Cynycal for the Omniwrench texture and King_Lemming for permission to use it.",
+    "logoFile": "",
+    "screenshots": [ ],
+    "parent": "",
+    "requiredMods": [ "Forge" ],
+    "dependencies": [ "Modular Powersuits" ]
+}]

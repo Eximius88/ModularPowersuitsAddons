@@ -1,0 +1,140 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 10/8/14 12:03 AM
+Description: Ticking player
+
+java.lang.IllegalAccessError: tried to access field net.minecraft.network.NetHandlerPlayServer.floatingTickCount from class net.machinemuse.numina.player.NuminaPlayerUtils$
+	at net.machinemuse.numina.player.NuminaPlayerUtils$.resetFloatKickTicks(NuminaPlayerUtils.scala:11)
+	at net.machinemuse.numina.player.NuminaPlayerUtils.resetFloatKickTicks(NuminaPlayerUtils.scala)
+	at net.machinemuse.powersuits.powermodule.movement.JumpAssistModule.onPlayerTickActive(JumpAssistModule.java:67)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2$$anonfun$apply$3.apply(PlayerUpdateHandler.scala:39)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2$$anonfun$apply$3.apply(PlayerUpdateHandler.scala:36)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:743)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1174)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2.apply(PlayerUpdateHandler.scala:36)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2.apply(PlayerUpdateHandler.scala:33)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:743)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1174)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1.apply(PlayerUpdateHandler.scala:33)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1.apply(PlayerUpdateHandler.scala:17)
+	at scala.Option.map(Option.scala:145)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler.onPlayerUpdate(PlayerUpdateHandler.scala:17)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler_46_PlayerUpdateHandler_onPlayerUpdate_LivingUpdateEvent.invoke(.dynamic)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
+	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:138)
+	at net.minecraftforge.common.ForgeHooks.onLivingUpdate(ForgeHooks.java:280)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1558)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:288)
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:295)
+	at net.minecraft.network.NetHandlerPlayServer.processPlayer(NetHandlerPlayServer.java:303)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(SourceFile:137)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(SourceFile:8)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:212)
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:165)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:659)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:547)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:111)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:427)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:685)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.machinemuse.numina.player.NuminaPlayerUtils$.resetFloatKickTicks(NuminaPlayerUtils.scala:11)
+	at net.machinemuse.numina.player.NuminaPlayerUtils.resetFloatKickTicks(NuminaPlayerUtils.scala)
+	at net.machinemuse.powersuits.powermodule.movement.JumpAssistModule.onPlayerTickActive(JumpAssistModule.java:67)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2$$anonfun$apply$3.apply(PlayerUpdateHandler.scala:39)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2$$anonfun$apply$3.apply(PlayerUpdateHandler.scala:36)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:743)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1174)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2.apply(PlayerUpdateHandler.scala:36)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1$$anonfun$apply$2.apply(PlayerUpdateHandler.scala:33)
+	at scala.collection.Iterator$class.foreach(Iterator.scala:743)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1174)
+	at scala.collection.IterableLike$class.foreach(IterableLike.scala:72)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:54)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1.apply(PlayerUpdateHandler.scala:33)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler$$anonfun$1.apply(PlayerUpdateHandler.scala:17)
+	at scala.Option.map(Option.scala:145)
+	at net.machinemuse.powersuits.event.PlayerUpdateHandler.onPlayerUpdate(PlayerUpdateHandler.scala:17)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler_46_PlayerUpdateHandler_onPlayerUpdate_LivingUpdateEvent.invoke(.dynamic)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
+	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:138)
+	at net.minecraftforge.common.ForgeHooks.onLivingUpdate(ForgeHooks.java:280)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1558)
+	at net.minecraft.entity.player.EntityPlayer.onUpdate(EntityPlayer.java:288)
+
+-- Player being ticked --
+Details:
+	Entity Type: null (net.minecraft.entity.player.EntityPlayerMP)
+	Entity ID: 167
+	Entity Name: Player90
+	Entity's Exact location: 153.94, 72.00, 250.75
+	Entity's Block location: World: (153,72,250), Chunk: (at 9,4,10 in 9,15; contains blocks 144,0,240 to 159,255,255), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0.00, -0.08, 0.00
+Stacktrace:
+	at net.minecraft.entity.player.EntityPlayerMP.onUpdateEntity(EntityPlayerMP.java:295)
+	at net.minecraft.network.NetHandlerPlayServer.processPlayer(NetHandlerPlayServer.java:303)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(SourceFile:137)
+	at net.minecraft.network.play.client.C03PacketPlayer.processPacket(SourceFile:8)
+	at net.minecraft.network.NetworkManager.processReceivedPackets(NetworkManager.java:212)
+
+-- Ticking connection --
+Details:
+	Connection: net.minecraft.network.NetworkManager@95690a0
+Stacktrace:
+	at net.minecraft.network.NetworkSystem.networkTick(NetworkSystem.java:165)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:659)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:547)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:111)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:427)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:685)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.7.0_67, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 669125776 bytes (638 MB) / 1038876672 bytes (990 MB) up to 1038876672 bytes (990 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 2, tcache: 0, allocated: 12, tallocated: 96
+	FML: MCP v9.05 FML v7.10.85.1222 Minecraft Forge 10.13.1.1222 20 mods loaded, 20 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{7.10.85.1222} [Forge Mod Loader] (forgeBin-1.7.10-10.13.1.1222.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{10.13.1.1222} [Minecraft Forge] (forgeBin-1.7.10-10.13.1.1222.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	appliedenergistics2-core{rv1-stable-1} [AppliedEnergistics2 Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	numina{0.4.0.98} [Numina] (Numina-0.4.0.98-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	powersuits{0.11.0.172} [MachineMuse's Modular Powersuits] (ModularPowersuits-0.11.0.172-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	powersuitaddons{@VERSION@} [Modular Powersuits Addon] (main) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	appliedenergistics2{rv1-stable-1} [Applied Energistics 2] (appliedenergistics2-rv1-stable-1-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CoFHCore{1.7.10R3.0.0B6} [CoFH Core] (CoFHCore-[1.7.10]3.0.0B6-dev-32.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ThermalFoundation{1.7.10R1.0.0B3} [Thermal Foundation] (ThermalFoundation-[1.7.10]1.0.0B3-dev-8.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ThermalExpansion{1.7.10R4.0.0B5} [Thermal Expansion] (ThermalExpansion-[1.7.10]4.0.0B5-dev-13.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ForgeMultipart{1.1.0.306} [Forge Multipart] (ForgeMultipart-1.7.10-1.1.0.306-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	McMultipart{1.1.0.306} [Minecraft Multipart Plugin] (ForgeMultipart-1.7.10-1.1.0.306-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Core{6.0.18} [BuildCraft] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Builders{6.0.18} [BC Builders] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Energy{6.0.18} [BC Energy] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Factory{6.0.18} [BC Factory] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Transport{6.0.18} [BC Transport] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	BuildCraft|Silicon{6.0.18} [BC Silicon] (buildcraft-6.0.18-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	ForgeMicroblock{1.1.0.306} [Forge Microblocks] (ForgeMultipart-1.7.10-1.1.0.306-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	AE2 Version: stable rv1-stable-1 for Forge 10.13.0.1187
+	AE2 Integration: IC2:OFF, RotaryCraft:OFF, RC:OFF, BC:ON, MJ6:ON, MJ5:ON, RF:ON, RFItem:ON, MFR:OFF, DSU:ON, FZ:OFF, FMP:ON, RB:OFF, CLApi:OFF, Waila:OFF, InvTweaks:OFF, NEI:OFF, CraftGuide:OFF, Mekanism:OFF, ImmibisMicroblocks:OFF, BetterStorage:OFF
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['Player90'/167, l='Test1', x=153.94, y=72.00, z=250.75]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

@@ -1,0 +1,50 @@
+// class version 50.0 (50)
+// access flags 0x601
+public abstract interface TEnergyHandler$$8 implements cofh/api/energy/IEnergyHandler  {
+
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$impl()Lcofh/api/energy/IEnergyHandler;
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$impl_$eq(Lcofh/api/energy/IEnergyHandler;)V
+
+  // access flags 0x401
+  public abstract bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$super$bindPart(Lcodechicken/multipart/TMultiPart;)V
+
+  // access flags 0x401
+  public abstract partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$super$partRemoved(Lcodechicken/multipart/TMultiPart;I)V
+
+  // access flags 0x401
+  public abstract canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$super$canAddPart(Lcodechicken/multipart/TMultiPart;)Z
+
+  // access flags 0x401
+  public abstract getEnergyStored(Lnet/minecraftforge/common/util/ForgeDirection;)I
+
+  // access flags 0x401
+  public abstract extractEnergy(Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+
+  // access flags 0x401
+  public abstract canConnectEnergy(Lnet/minecraftforge/common/util/ForgeDirection;)Z
+
+  // access flags 0x401
+  public abstract receiveEnergy(Lnet/minecraftforge/common/util/ForgeDirection;IZ)I
+
+  // access flags 0x401
+  public abstract getMaxEnergyStored(Lnet/minecraftforge/common/util/ForgeDirection;)I
+
+  // access flags 0x401
+  public abstract copyFrom(Lcodechicken/multipart/TileMultipart;)V
+
+  // access flags 0x401
+  public abstract TEnergyHandler$$8$$super$copyFrom(Lcodechicken/multipart/TileMultipart;)V
+}

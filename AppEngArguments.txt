@@ -1,0 +1,1 @@
+-Dfml.coreMods.load=appeng.transformer.AppEngCore
