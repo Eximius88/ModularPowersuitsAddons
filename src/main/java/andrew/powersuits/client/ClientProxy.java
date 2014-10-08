@@ -1,10 +1,7 @@
 package andrew.powersuits.client;
 
 
-import andrew.powersuits.common.AddonConfig;
-import andrew.powersuits.common.AddonLogger;
-import andrew.powersuits.common.CommonProxy;
-import andrew.powersuits.common.ModularPowersuitsAddons;
+import andrew.powersuits.common.*;
 import andrew.powersuits.tick.MPSACommonTickHandler;
 import andrew.powersuits.tick.MPSARenderHandler;
 import andrew.powersuits.tick.MPSATickHandler;
@@ -35,17 +32,20 @@ public class ClientProxy extends CommonProxy {
 
     @SideOnly(Side.CLIENT)
     public static void loadCurrentLanguage() {
-        if (getCurrentLanguage() != extractedLanguage) {
-            extractedLanguage = getCurrentLanguage();
-        }
-        try {
-            InputStream inputStream = ModularPowersuitsAddons.INSTANCE.getClass().getResourceAsStream(LANG_PATH + extractedLanguage + ".lang");
-            Properties langPack = new Properties();
-            langPack.load(new InputStreamReader(inputStream, Charsets.UTF_8));
-            LanguageRegistry.instance().addStringLocalization(langPack, extractedLanguage);
-        } catch (Exception e) {
-            e.printStackTrace();
-            AddonLogger.logError("Couldn't read MPSA localizations for language " + extractedLanguage + " :(");
+
+        if (AddonUtils.isClientSide()) {
+            if (getCurrentLanguage() != extractedLanguage) {
+                extractedLanguage = getCurrentLanguage();
+            }
+            try {
+                InputStream inputStream = ModularPowersuitsAddons.INSTANCE.getClass().getResourceAsStream(LANG_PATH + extractedLanguage + ".lang");
+                Properties langPack = new Properties();
+                langPack.load(new InputStreamReader(inputStream, Charsets.UTF_8));
+                LanguageRegistry.instance().addStringLocalization(langPack, extractedLanguage);
+            } catch (Exception e) {
+                e.printStackTrace();
+                AddonLogger.logError("Couldn't read MPSA localizations for language " + extractedLanguage + " :(");
+            }
         }
     }
 

@@ -15,6 +15,9 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.FMLEventChannel;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import ic2.core.init.Localization;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
@@ -56,7 +59,11 @@ public class ModularPowersuitsAddons {
     public void load(FMLInitializationEvent event) {
         packetHandler.register(new MPSAPacketHandler());
         AddonComponent.populate();
-        ClientProxy.loadCurrentLanguage();
+
+        if (!AddonUtils.isServerSide()) {
+            System.out.println("MPSA: Loading Localization");
+            ClientProxy.loadCurrentLanguage();
+        }
         AddonConfig.loadOptions();
         proxy.registerHandlers();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);

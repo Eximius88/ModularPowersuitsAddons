@@ -101,11 +101,11 @@
     <orderEntry type="library" exported="" name="Gradle: Waila-1.5.6_dev1_1.7.10" level="project" />
     <orderEntry type="library" exported="" name="Gradle: industrialcraft-2-2.2.643-experimental-api" level="project" />
     <orderEntry type="library" exported="" name="Gradle: industrialcraft-2-2.2.643-experimental-dev" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: scala-parser-combinators_2.11-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: scala-xml_2.11-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: NotEnoughItems-1.7.10-1.0.3.56-dev" level="project" />
     <orderEntry type="library" exported="" name="Gradle: CodeChickenCore-1.7.10-1.0.3.26-dev" level="project" />
     <orderEntry type="library" exported="" name="Gradle: industrialcraft-2-2.2.643-experimental-dev" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: scala-parser-combinators_2.11-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: scala-xml_2.11-1.0.2" level="project" />
   </component>
 </module>
 
