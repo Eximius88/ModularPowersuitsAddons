@@ -1,0 +1,36 @@
+Made by users: Lirannl
+Last edited on 13/10/14 12:33PM GMT
+
+item.powerArmorComponent.componentSolarPanel.name = לוח סולארי
+item.powerArmorComponent.componentMagnet.name = מגנט
+item.powerArmorComponent.componentComputerChip.name = שבב מחשב
+item.powerArmorComponent.componentLiquidNitrogen.name = דלי חנקן נוזלי
+item.powerArmorComponent.componentRubberHose.name = צינור גומי מבודד
+<<<<<<< HEAD
+item.powerArmorComponent.componentRawCarbon.name = פחמן
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
+
+module.portableCraftingTable.name = בונה פנים זרועי
+module.kineticGenerator.name = גנרטור קינטי
+module.solarGenerator.name = גנרטור סולארי
+module.thermalGenerator.name = גנרטור תרמי
+module.autoFeeder.name = מאכיל-אוטומטי
+module.magnet.name = מגנט
+module.oreScanner.name = סורק עופרות
+module.leafBlower.name = מעיף עלים
+module.mobRepulsor.name = דוחה אורגניזמים
+module.flintAndSteel.name = מצית
+module.clock.name = שעון
+module.compass.name = מצפן
+module.lightningSummoner.name = מחולל ברקים
+module.waterTank.name = מיכל מים
+module.euReader.name = קורא EU
+module.treetap.name = חולץ שרף
+module.teMultimeter.name = מד TE
+module.torchPlacer.name = ממקם לפידים
+module.appengWireless.name = טרמינל אלחוטי
+module.bucket.name = דלי
+module.advSolarGenerator.name = מחולל סולארי ביעילות גבוהה
+module.nitrogenCoolingSystem.name = מערכת קירור בחנקן נוזלי
+module.mechAssistance.name = מסייע מכאני
