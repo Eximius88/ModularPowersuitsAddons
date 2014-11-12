@@ -39,7 +39,7 @@ group= "andrew.powersuits.modid" // http://maven.apache.org/guides/mini/guide-na
 archivesBaseName = "powersuitaddons"
 
 minecraft {
-    version = "1.7.10-10.13.1.1222"
+    version = "1.7.10-10.13.2.1230"
     assetDir = "eclipse/assets"
 }
 

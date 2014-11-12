@@ -1,5 +1,6 @@
 package andrew.powersuits.modules;
 
+import andrew.powersuits.common.AddonConfig;
 import appeng.api.AEApi;
 import appeng.items.tools.powered.ToolWirelessTerminal;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -14,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -61,7 +63,53 @@ public class AppEngWirelessModule extends PowerModuleBase implements IRightClick
     @Override
     public void onRightClick(EntityPlayer player, World world, ItemStack item) {
 
-        AEApi.instance().registries().wireless().OpenWirelessTermainlGui(item, world, player);
+        Class clazz = null;
+        Object wirelessTermRegistry = null;
+		try {
+			wirelessTermRegistry = AEApi.instance().registries().getClass().getDeclaredMethod("wireless").invoke(AEApi.instance().registries());
+			clazz = wirelessTermRegistry.getClass();
+		} catch (IllegalAccessException e1) {
+			e1.printStackTrace();
+		} catch (IllegalArgumentException e1) {
+			e1.printStackTrace();
+		} catch (InvocationTargetException e1) {
+			e1.printStackTrace();
+		} catch (NoSuchMethodException e1) {
+			e1.printStackTrace();
+		} catch (SecurityException e1) {
+			e1.printStackTrace();
+		}
+		if(clazz == null || wirelessTermRegistry == null)
+			return;
+        if(AddonConfig.aeVersion == AddonConfig.AEVersion.Rv1){
+        	try {
+				clazz.getDeclaredMethod("OpenWirelessTermainlGui", ItemStack.class, World.class, EntityPlayer.class).invoke(wirelessTermRegistry, item, world, player);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			}
+        }else if(AddonConfig.aeVersion == AddonConfig.AEVersion.Rv2){
+        	try {
+				clazz.getDeclaredMethod("openWirelessTerminalGui", ItemStack.class, World.class, EntityPlayer.class).invoke(wirelessTermRegistry, item, world, player);
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			}
+        }
     }
 
     @Override

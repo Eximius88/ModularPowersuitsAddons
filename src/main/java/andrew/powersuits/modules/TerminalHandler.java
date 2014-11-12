@@ -1,12 +1,16 @@
 package andrew.powersuits.modules;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Set;
 
+import andrew.powersuits.common.AddonConfig;
 import appeng.api.AEApi;
+import appeng.api.config.LevelEmitterMode;
 import appeng.api.config.Settings;
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
+import appeng.api.config.StorageFilter;
 import appeng.api.config.ViewItems;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.util.IConfigManager;
@@ -82,7 +86,20 @@ public class TerminalHandler implements IWirelessTermHandler {
 
     public static void registerHandler() {
         if (Loader.isModLoaded("appliedenergistics2")) {
-            AEApi.instance().registries().wireless().registerWirelessHandler(new TerminalHandler());
+            try {
+				Object wirelessTermHandler = AEApi.instance().registries().getClass().getDeclaredMethod("wireless").invoke(AEApi.instance().registries());
+				wirelessTermHandler.getClass().getDeclaredMethod("registerWirelessHandler", IWirelessTermHandler.class).invoke(wirelessTermHandler, new TerminalHandler());
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			}
             System.out.println("MPSA: Registering AE Terminal Handler :MPSA");
 
         }
@@ -121,18 +138,16 @@ public class TerminalHandler implements IWirelessTermHandler {
 		}
 
 		@Override
-		public Enum putSetting(Enum arg0, Enum arg1) {
-			enums.put(arg0, arg1);
+		public Enum putSetting(Enum settingName, Enum newValue) {
+			Enum oldValue = getSetting( settingName );
+			enums.put( settingName, newValue );
 			writeToNBT(stack.getTagCompound());
-			return arg1;
+			return oldValue;
 		}
 
 		@Override
 		public void registerSetting(Enum arg0, Enum arg1) {
-			if(!enums.containsKey(arg0)){
-				putSetting(arg0, arg1);
-			}
-			
+			enums.put(arg0, arg1);
 		}
 
 		@Override
@@ -153,15 +168,7 @@ public class TerminalHandler implements IWirelessTermHandler {
 					if ( tag.hasKey( key.name() ) )
 					{
 						String value = tag.getString( key.name() );
-
-						// Provides an upgrade path for the rename of this value in the API between rv1 and rv2
-						//TODO implement on rv2 update
-						/*if( value.equals( "EXTACTABLE_ONLY" ) ){
-							value = StorageFilter.EXTRACTABLE_ONLY.toString();
-						} else if( value.equals( "STOREABLE_AMOUNT" ) ) {
-							value = LevelEmitterMode.STORABLE_AMOUNT.toString();
-						}*/
-
+						
 						Enum oldValue = enums.get( key );
 
 						Enum newValue = Enum.valueOf( oldValue.getClass(), value );
