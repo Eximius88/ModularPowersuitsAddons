@@ -70,7 +70,23 @@ public class ModularPowersuitsAddons {
         AddonRecipeManager.cheatyLeather();
 
         if (Loader.isModLoaded("appliedenergistics2")) {
-            TerminalHandler.registerHandler();
+        	String version = null;
+        	try{
+        		version = ((String) Class.forName("appeng.core.AEConfig").getField("VERSION").get(null)).toLowerCase();
+        	}catch(Exception e){
+        		e.printStackTrace();
+        	}
+        	if(version == null){
+        		System.err.println("MSPA: Can't check AE version :MSPA");
+        	}else if(version.contains("rv1")){
+        		AddonConfig.aeVersion = AddonConfig.AEVersion.Rv1;
+        		TerminalHandler.registerHandler();
+        	}else if(version.contains("rv2")){
+        		AddonConfig.aeVersion = AddonConfig.AEVersion.Rv2;
+        		TerminalHandler.registerHandler();
+        	}else{
+        		System.out.println("MPSA: This version of MPSA is not coompatible with the version of AE2 :MPSA");
+        	}
         }
 
     }

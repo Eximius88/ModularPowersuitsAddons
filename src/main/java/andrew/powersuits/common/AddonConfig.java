@@ -1,6 +1,7 @@
 package andrew.powersuits.common;
 
 import andrew.powersuits.modules.*;
+import appeng.api.AEApi;
 import cpw.mods.fml.common.Loader;
 import net.machinemuse.api.IModularItem;
 import net.machinemuse.api.IPowerModule;
@@ -33,6 +34,8 @@ public class AddonConfig{
     public static boolean useHUDStuff;
     public static boolean useDebugMode;
     public static boolean use24hClock;
+    
+    public static AEVersion aeVersion = AEVersion.NONE;
 
 
     public static void init(Configuration config) {
@@ -78,9 +81,18 @@ public class AddonConfig{
 
 
         if (Loader.isModLoaded("appliedenergistics2")) {
-            addModule(new AppEngWirelessModule(TOOLONLY));
-            System.out.println("MPSA: Loading AE Modules :MPSA");
-
+        	
+        	if(aeVersion == null){
+        		throw new NullPointerException("AE Version was set to \"null\"");
+        	}else if(aeVersion == AEVersion.Rv1){
+        		addModule(new AppEngWirelessModule(TOOLONLY));
+        		aeVersion = AEVersion.Rv1;
+        		System.out.println("MPSA: Loading AE Modules(rv1) :MPSA");
+        	}else if(aeVersion == AEVersion.Rv2){
+        		addModule(new AppEngWirelessModule(TOOLONLY));
+        		aeVersion = AEVersion.Rv2;
+        		System.out.println("MPSA: Loading AE Modules(rv2) :MPSA");
+        	}
         }
 
 
@@ -109,6 +121,11 @@ public class AddonConfig{
         useDebugMode = getConfig().get(category, "Use Debug mode. WARNING: WILL PROBABLY SPAM YOUR CONSOLE", false).getBoolean(false);
         use24hClock = getConfig().get(category, "Use a 24h clock instead of 12h", false).getBoolean(false);
     }
-
+    
+    public enum AEVersion{
+    	Rv1,
+    	Rv2,
+    	NONE
+    }
 
 }
