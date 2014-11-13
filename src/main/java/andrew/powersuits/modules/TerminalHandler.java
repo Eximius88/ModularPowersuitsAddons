@@ -10,6 +10,7 @@ import appeng.api.config.SortOrder;
 import appeng.api.config.ViewItems;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.util.IConfigManager;
+import net.machinemuse.utils.ElectricItemUtils;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -34,12 +35,19 @@ public class TerminalHandler implements IWirelessTermHandler {
 
     @Override
     public boolean usePower(EntityPlayer entityPlayer, double v, ItemStack itemStack) {
-        return false;
+        boolean ret = false;
+        if (( v * 5 ) < ( ElectricItemUtils.getPlayerEnergy( entityPlayer ) * 5 ))
+        {
+            ElectricItemUtils.drainPlayerEnergy(entityPlayer, ( v * 5 ) );
+            ret = true;
+        }
+
+        return ret;
     }
 
     @Override
     public boolean hasPower(EntityPlayer entityPlayer, double v, ItemStack itemStack) {
-        return true;
+        return (( v * 5 ) < ( ElectricItemUtils.getPlayerEnergy(entityPlayer) * 5 ));
     }
 
     @Override

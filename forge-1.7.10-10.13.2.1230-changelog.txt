@@ -1,5 +1,304 @@
 Changelog:
-Build 1180:
+Build 1230:
+	LexManos: Fix logic error in Blodd's Snapshot capture that caused blocks to not be updated to the client. Closes #1451
+	LexManos: Bump version for new RB.
+
+Build 1.7.10-10.13.1.1229:
+	AbrarSyed: implemented crowdin support
+	matthewprenger: Add username cache for determining a player's last known username
+	azanor1:
+		Fix for biome weights under 10
+		
+		This solves the problem where custom mod biomes with weights under 10
+		not being generated in the world.
+		
+		Cleaned up the code and made the patch smaller
+
+Build 1.7.10-10.13.1.1226:
+	LexManos: Compleetly disable stencil bits unless told not to by using the -Dforge.forceDisplayStencil=true flag. Should solve the 'menu in bottom corner' issue with Intel Integrated graphics cards.
+
+Build 1.7.10-10.13.1.1225:
+	Parker Young: Added PlayerWakeUpEvent
+
+Build 1.7.10-10.13.1.1224:
+	Adubbz: Fixed biome weights not working with non multiples of 10
+
+Build 1.7.10-10.13.1.1223:
+	LexManos: Fix vanilla lighting issue and blending issues in achievements gui. Closes #1445
+
+Build 1.7.10-10.13.1.1222:
+	LexManos: MinecraftForge/FML@d00feb58c762b0bbc506d79faf1ce40bc96732e9 Remove debug code that was causing console spam in Forge.
+
+Build 1.7.10-10.13.1.1221:
+	LexManos: Disable by default the Display Stencil bits. Keep FBO bits. Acording to Mumfery and ChickenBones, it should not be nessasary and should solve the 1/4 main menu issue. Use -Dforge.forceDisplayStencil=true to enable old behavior.
+
+Build 1.7.10-10.13.1.1220:
+	jadran.kotnik: Prevent client only commands from bleeding through to the server.
+
+Build 1.7.10-10.13.1.1219:
+	jdroque:
+		Added PlaceEvent and MultiPlaceEvent which fires before placing a block.
+		
+		Before calling "ItemStack.tryPlaceItemInWorld", a recording flag is turned on for
+		setBlock to capture a blocksnapshot for each block that attempts to be placed.
+		
+		If 1 block is captured, a "BlockEvent.PlaceEvent" is fired to notify mods.
+		If 2 or more blocks are captured, a "BlockEvent.PlaceEvent" is fired first with the first block
+		captured followed by a "BlockEvent.MultiPlaceEvent" with all captured blocks. This extra event
+		is required for items that have the ability to place 2 or more blocks such as a BlockBed.
+		
+		If either event is cancelled, the recorded block snapshot(s), item stacksize, and item meta will
+		revert back to the captured snapshot(s).
+		If the events are not cancelled, a notification will be sent to clients and block physics will be updated.
+		
+		What this means for mods is Forge will be able to capture all player block placement automatically and fire
+		a PlaceEvent and/or MultiPlaceEvent.
+		If for whatever reason your mod does not use the standard placement methods then you will need to fire the
+		appropriate placement events in order to notify mods/servers.
+		
+		This commit also includes a new utility class called BlockSnapshot which is serializable. This new class is used in conjunction with
+		both PlaceEvent and MultiPlaceEvent in order to record a snapshot of block space before it is altered. This
+		allows us to restore the block(s) if an event is cancelled. The class also provides the ability to restore a snapshot
+		to any location using the restoreToLocation method. This should be helpful to many mods that are looking to be able
+		to capture block data then restore it to back to any location required.
+
+Build 1.7.10-10.13.1.1217:
+	cpw:
+		GIANT FML UPDATE! Bump forge revision number, and fix patches for ItemStack changes. More to come on this branch I expect.
+		
+		MinecraftForge/FML@7c5cf219042581545b6073de4e947448ffa10879 Implement STDOUT/STDERR redirection.
+		MinecraftForge/FML@bc78e31cb7ad4eda6e5faa173cd6b21e70a2c444 added support for \n in tooltip strings added \n test tooltip localization fixed int/double conversion error in slider entry added test slider scenario that highlighted conversion error
+		MinecraftForge/FML@a2908e5c596bb5502bf455d468d2b1ead0520f55 Clean up a bunch of compiler warnings.
+		MinecraftForge/FML@7f67523d870ae150071c67b002597542eb206725 Update realms to 1.3.2
+		MinecraftForge/FML@73f23c24b85240458f352f248e885684aaff4743 Merge branch 'std-redir' of github.com:Emberwalker/FML
+		MinecraftForge/FML@1c6b25df740a64c94d9ba05dd7e4412515abf5bb If an IO exception comes from the datawatcher, spew it all over the console don't discard it silently. Should stop pixelmon blaming forge for their mistakes.
+		MinecraftForge/FML@e77da9eb2f5c58a494ed100dd4c1dd1a0c341dbf And fix the read side too, incase someone is trying to bitbang and failing.
+		MinecraftForge/FML@305d8950c9332c7a7f290db05e6f18ef328016e2 Make LogContext optional. This can be useful for debugging mod issues, but Apache's implementation in log4j2 is responsible for a very significant % of the overall runtime. Quite frankly this is shockingly bad performance from what is supposed to be a high performance logging framework. Anyway, until we can figure out if we can fix it, we're turning it off by default.
+		MinecraftForge/FML@bdfca1c8ed463a6053526c7a46a990007711e3d0 Make more noise when people screw up mod downloading and put .jar.zip in their mod folders.
+		MinecraftForge/FML@21084941127fc882d9968316a8f0669531e484df Add a custom version range factory method. Should hush skyboy's complaints. Closes #486
+		MinecraftForge/FML@7c1e6aaa40704001231e602ceaedfa21a5df1edf Add a delegate to every item and block. this should help with renaming fun stuffs. Also, fix all the tabs from my previous commits. *sigh*
+		MinecraftForge/FML@61fcb4df06dc968fcc31d3e4e524e574acfdbb3b Tweak Itemstack patch to always delegate to the method call. Set the field, so it's in sync.
+		MinecraftForge/FML@eb8c5ab146f2eb3ad3833d40607da97831278ffb Fix nested directory for language resources. Closes MinecraftForge#1264
+		MinecraftForge/FML@7c05e5f70d5387512d0bee33ef99510ee5aac739 Default collections, so that we don't crash if useDependencyInfo is true. Closes #485
+		MinecraftForge/FML@9729fe23326a3d4f6b03e60b5cdaf78a484b3657 Kill net.minecraft.src warning. It hasn't served a purpose in a long time now. Closes #313
+		MinecraftForge/FML@21e875ef22eef6068ccd6df1bd71cf58cba48eed AllowPlayerLogins only after the server has completed the core init tasks. Closes #372
+		MinecraftForge/FML@46cfeade80ae60ad2d8cdb40c5fdfdaeeaf16d00 Add a constructor to CustomModLoadingDisplayException. Closes #387
+		MinecraftForge/FML@a6eab2683a15a0cceca7a0ded6095b746cdd017b Update README.txt
+		MinecraftForge/FML@f75838461cf6d9c5010cbfd2d9ef5ceec03268d7 Last part is the itemstack transformer. Itemstacks should now only be loosely coupled with the items within.
+		MinecraftForge/FML@51f24e9e6d1bee371cf23cdfd0071de7c5175417 First draft of add alias. It is probably not properly persistent atm.
+		MinecraftForge/FML@2a4c6424709b20ce1e9bda0d85ce7fac47d157c2 Finally fix stupid NPE error caused by FML trying to parse the super of Object in IDEA envs.
+		MinecraftForge/FML@c1b1417ee168523154a0edae68c3180814eab1c7 FML now supports passing a json formatted modlist as an argument, as well as a comma separated argument list. These facilitate modpacks mostly, by meaning you don't need to duplicate mods. The modlist is arranged in the maven style, with mods referenced maven-like.
+		MinecraftForge/FML@3d42cda2a2cf5b24e7a25537d883260857b2107a Build.Gradle Patch
+		MinecraftForge/FML@20c7add8455cd16a4551ed13336a9ad4f9770cd1 Merge pull request #484 from bspkrs/master
+		MinecraftForge/FML@26ed4b992eb6341d52d12fb6735415ab8e3c501d Clear button list on FML fatal error screens. The hidden cancel button should not be there. Closes #497
+		MinecraftForge/FML@ebe4f5c5e297d5d59ce57138810627a9c7a1b412 Merge pull request #494 from AntonBoch1244/patch-1
+		MinecraftForge/FML@ad0da05f5c78d7f3c35a331e993dd6e679fc7ac9 Fix the ItemStack transformer to find the method and field so it works with srg and mcp naming.
+		MinecraftForge/FML@65d380181a84d35a78791e1bc3c7712cd90506f6 Extend timeout for client to 5 seconds. Should fix Forge #1322
+		MinecraftForge/FML@45486a0b6dfca65c4d1dd23176d4c9d13d46b6f5 Fix almost invisible NPE in TerminalTransformer when loading a non-existant class
+		MinecraftForge/FML@13da3efce07653732971837709ccf4de7e4c5c8e Allow a clean way to exit the game without big ugly warnings, but with logging information available if needed. Closes #496
+		MinecraftForge/FML@fda305edfea15ba2015cede72327703f273f74e3 Some more tidying up of the exit handling
+		MinecraftForge/FML@b087f60c3379d0767247e51cbc3f7c631fe97a08 More cleanup of exit handling, also add a couple more noise classes to the list of things ignored.
+		MinecraftForge/FML@d6358a466b4614cfc35b403d756fe3ef550ebf50 Cleanup override warnings
+		MinecraftForge/FML@af7a58b9e50dbacf63cf4b5009abc52301609e1f Update to legacylauncher 1.10 and asm 5.0.3
+		MinecraftForge/FML@e6d00440a612c235013f3f92f1756811139a6de0 ItemStack swapping
+		MinecraftForge/FML@8597e45a0e417948db483006aa54e899f28b05ac Fix NPE from a boolean
+		MinecraftForge/FML@b9b9daa8a9d1cac8550561f31f118589abc0c30a Fix ups from feedback.
+		MinecraftForge/FML@d89165021f33fbffb4563d86b30bd261506c6ea6 Mark the promise a success in the outbound handler.
+		MinecraftForge/FML@2e5ccf7988385d38b964c615776f23a1718f5c27 Update for launchwrapper 1.11. Fixes java 6 compatibility.
+		MinecraftForge/FML@641250d8536bad3af5a036b70dae94097176b420 Fix java 8u20. Closes #501 and a bunch of other bugs too.
+		MinecraftForge/FML@292be72639feded03ced26d9a06a98159f7a95b7 Allow client handshake to be reset by server to support BungeeCord.
+		MinecraftForge/FML@092873fbe5baaee53bee67d26d2fc6d3d003f095 Merge branch 'bungeecord' of github.com:bloodmc/FML
+		MinecraftForge/FML@134f2f8e8865a91292386a3738bb45bad0477a4b Fix bug with entityspawn - if the entity doesn't extend livingbase, it fails to write a headyaw byte, and everything will be derped for that packet.
+		MinecraftForge/FML@4852de81e02e2b6c6d006abe20d8497499fdf51f Wrap the server description box a little bit shorter. Stops the overlapping. Closes #489
+	cpw:
+		MinecraftForge/FML@4ce3e73bfe36c02b10f504f93eff1bc94d640e32 Add overloaded version of SimpleNetworkWrapper#registerMessage that takes the MessageHandler instance directly, allowing to specify the same handler for multiple messages.
+		MinecraftForge/FML@cbe2ccbda461ec0ecf4d776fcd19ab31930cc3f1 Add in ModType to the jar manifest. If it's present, and doesn't have value "FML" it will be skipped from the modloading cycle. This should let liteloader mods have a .jar extension.
+		MinecraftForge/FML@37cf0174fc62a842d132b2c2cc31e477acfba205 OK, lets make that a csv list. It'll let you be liteloader and fml in one jar file!
+		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
+		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
+		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
+		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
+		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
+		MinecraftForge/FML@1ff048062c7f122731619258a9e5a68a6111d5dd Merge branch 'simple-netw-improve' of github.com:diesieben07/FML
+	cpw: MinecraftForge/FML@dc02d56195606d3ba2f1c5036fc8c0ddb67c843f Fix derp with ModType annotation. mods should load again now..
+	diesieben07: Added Item#isBeaconpayment
+	cpw:
+		MinecraftForge/FML@7ab69aff2e19b349e457c1b5fcab8b3b01d22af2 Clean up import
+		MinecraftForge/FML@c5a90bd456230b201522c268dd9bc5e80a0b57be Is vanilla possible with this mod load, side tests.
+		MinecraftForge/FML@cad11f3165505e6d725411a9fc2c2ee8362f5827 Allow injecting alternative container types. This is the core support code for allowing sponge plugins!
+	michafla:
+		check for IFluidBlock (in addition to Material.liquid) when
+		determining render height so that non-liquids (gases) render correctly
+	kat.swales: Fixed Clientside GameProfile UUID being null on offline mode
+	cpw:
+		MinecraftForge/FML@63b64482e6dd4c3e2226ec002ceee549045c35ed Add jsr305 dev-time dependancy for Nullable/Nonnull annotations. Unneeded at runtime.
+		MinecraftForge/FML@5365f5ea3e90ec85552bdb7f1f1237c51b4ea493 Add IEventExceptionHandler for EventBus to allow special handeling exceptions that are fired while running an event. Events now track what 'phase' they are in during the execution process. Each EventPriority is a 'phase'. An exception is thrown if the event attempts to set its phase to a previous one.
+
+Build 1.7.10-10.13.1.1216-new:
+	kat.swales: Fixed Clientside GameProfile UUID being null on offline mode
+
+Build 1.7.10-10.13.1.1215-new:
+	michafla:
+		check for IFluidBlock (in addition to Material.liquid) when
+		determining render height so that non-liquids (gases) render correctly
+
+Build 1.7.10-10.13.1.1214-new:
+	cpw:
+		MinecraftForge/FML@7ab69aff2e19b349e457c1b5fcab8b3b01d22af2 Clean up import
+		MinecraftForge/FML@c5a90bd456230b201522c268dd9bc5e80a0b57be Is vanilla possible with this mod load, side tests.
+		MinecraftForge/FML@cad11f3165505e6d725411a9fc2c2ee8362f5827 Allow injecting alternative container types. This is the core support code for allowing sponge plugins!
+
+Build 1.7.10-10.13.1.1213-new:
+	diesieben07: Added Item#isBeaconpayment
+
+Build 1.7.10-10.13.1.1212-new:
+	cpw: MinecraftForge/FML@dc02d56195606d3ba2f1c5036fc8c0ddb67c843f Fix derp with ModType annotation. mods should load again now..
+
+Build 1.7.10-10.13.1.1211-new:
+	cpw:
+		MinecraftForge/FML@4ce3e73bfe36c02b10f504f93eff1bc94d640e32 Add overloaded version of SimpleNetworkWrapper#registerMessage that takes the MessageHandler instance directly, allowing to specify the same handler for multiple messages.
+		MinecraftForge/FML@cbe2ccbda461ec0ecf4d776fcd19ab31930cc3f1 Add in ModType to the jar manifest. If it's present, and doesn't have value "FML" it will be skipped from the modloading cycle. This should let liteloader mods have a .jar extension.
+		MinecraftForge/FML@37cf0174fc62a842d132b2c2cc31e477acfba205 OK, lets make that a csv list. It'll let you be liteloader and fml in one jar file!
+		MinecraftForge/FML@0475b15eb1a7c35bf4959f1af40606e6ee8a9d03 Change the mods and modListFile argument handling a bit. Other tweakers will get a chance at looking at them now - they're only removed right before launch.
+		MinecraftForge/FML@abeac06a2e9bf8825b058fa35291165b4d1f1fb3 Two new features. ModLists can have a "parent" mod list. Circularity will result in a crash, so be careful. Mods specified in a child will override ones from a parent (using the maven group:name:classifier triple to identify - ignoring the version component)
+		MinecraftForge/FML@7fcfedcfef9b5fd85cd1c17aa2013fca1bacd871 Canonicalized file paths in modListFile handling with the minecraftDirectory.
+		MinecraftForge/FML@633fce19d4b367aed56d79e916f17296842f675c Make Keyevent also fire for key releases
+		MinecraftForge/FML@57ba2339b630afa22c0fdf060bf28edbf7b34d0f Merge branch 'keyup-event' of github.com:diesieben07/FML
+		MinecraftForge/FML@1ff048062c7f122731619258a9e5a68a6111d5dd Merge branch 'simple-netw-improve' of github.com:diesieben07/FML
+
+Build 1.7.10-10.13.0.1208:
+	zlyfire.martin:
+		Update README.txt
+		
+		Add in reference to running setupDecompWorkspace to get decompiled classes
+
+Build 1.7.10-10.13.0.1207:
+	bernhard.bonigl: Write the correct default value for StringList comments in the config
+
+Build 1.7.10-10.13.0.1206:
+	LexManos: Fix AIOOB in BiomeDictionary. Closes #1326
+
+Build 1.7.10-10.13.0.1205:
+	cpw:
+		Attempt to properly resolve this daft metadata and TE nonsense. This might be mod impacting, if you maintain a reference to a TE via neighbour update calls - you
+		might see two TEs for a single setblock where previously you saw one. This is a phantom TE being created by badly written neighbour triggers - I'm looking at you
+		redstone.
+		
+		Anyway, with luck, this'll close a slew of bugs across Forge, IC2, MFR, TE, RC. Yeah, fun times. Thanks to LexManos, skyboy and KingLemming for helping figure this
+		issue out. Quite frankly, from now on, issues with phantom TEs will be mods behaving badly. Modders will need to adapt.
+
+Build 1.7.10-10.13.0.1204:
+	LexManos: Fix invalid math in GuiContainerCreative.
+
+Build 1.7.10-10.13.0.1203:
+	porcariadagata: Add ItemStack sensitive version of getItemEnchantability
+
+Build 1.7.10-10.13.0.1202:
+	LexManos: Add ability for creative tabs that have search bars to customize the text box's width, and prevent the default set of enchanted books from being displayed in those tabs. Closes #1303 Closes #1301
+
+Build 1.7.10-10.13.0.1201:
+	abab9579:
+		Skylight Hooks for Minecraft Forge
+		
+		Mainly for solar/lunar eclipse.
+
+Build 1.7.10-10.13.0.1200:
+	JeanGlassmaker: Adds getLocalizedName and getUnlocalizedName to FluidStack
+
+Build 1.7.10-10.13.0.1199:
+	vazkii: Fixed items with more than 2 render passes rendering weird in first person
+	LexManos: Fix patch screwup in Skyboy's Fishing PR -.-
+	LexManos: Fix metadata for every permutation -.- Closes #1294
+	t.tomkins:
+		Legacy Liquid Load Fix
+		
+		nbt.getString("FluidName") no longer returns null, it returns an empty string.
+		
+		This patch allows legacy liquids to be resolved once again.
+
+Build 1.7.10-10.13.0.1198:
+	DemoXin:
+		* Added AT for ContainerRepair.stackSizeToBeUsedInRepair (Now public)
+		* Added ability to AnvilUpdateEvent to alter stackSizeToBeUsedInRepair (vanilla behavior is now reproducable)
+		* Added AnvilRepairEvent, fired when the player removes an ItemStack from the output slot of ContainerRepair, and allows the chance to damage the anvil to be altered.
+
+Build 1.7.10-10.13.0.1197:
+	skyboy026: Add FishingHooks
+	skyboy026: Update FishingHooks
+	skyboy026: Add EntityFishHook AT
+
+Build 1.7.10-10.13.0.1195:
+	rwtema: Fixed ItemFluidContainer always draining the maximum amount, regardless of the amount remaining.
+
+Build 1.7.10-10.13.0.1194:
+	LexManos: Closes #1280
+
+Build 1.7.10-10.13.0.1191:
+	LexManos: Fixed bug that allowed duplication of Fluids with redstone dust. Closes #1279
+
+Build 1.7.10-10.13.0.1190:
+	idont: - Added drainFluidContainer() and getContainerCapacity() helper methods.
+
+Build 1.7.10-10.13.0.1189:
+	Adubbz: Added an event for fog rendering
+
+Build 1.7.10-10.13.0.1188:
+	cpw:
+		Revert old light amortization patch. It seems to be breaking chunk sending pretty badly when more
+		than a couple of people are online. Tests indicate it is not useful anymore.
+	cpw: MinecraftForge/FML@3231db9376766d619f942b6a526718daa3c68038 Sorta revert 908491d5e7ac26becdac938f38cc90d6b9d73ce1 but merge assets into the map, rather than force overwriting. Fixes skyboy's comment.
+
+Build 1.7.10-10.13.0.1187:
+	LexManos:
+		Updated FML:
+		MinecraftForge/FML@53887ac59cec8f747e21fd251f94d5a438a69114 Hacky interm solution to #1207 to buy me time to re-write FML's network protocol.
+
+Build 1.7.10-10.13.0.1186:
+	LexManos: Fixed NPE that happens sometimes when exiting the game witout fully loading a world {main a dev-time thing}
+	LexManos: Made skulls respect Block.isReplaceable when placing, also prevented them from deleting blocks when placed at certain angels. Closes #1233
+
+Build 1.7.10-10.13.0.1185:
+	LexManos:
+		Updated FML:
+		MinecraftForge/FML@9d40b761974f10ec2b5868a992260792f8a98e5d Don't scan ObjectHolders if there was an error already, derpitude will ensure.
+		MinecraftForge/FML@76538c1781d6d6a1e4134fb317af99e6f13b46cc Add a terminal transformer and tweaker.
+		MinecraftForge/FML@aec9228845e50107112bd1f8693f9b4729694c8b Add ExitVisitor to the TerminalTransformer that finds and intercepts any calls to Runtime.exit or System.exit.
+		MinecraftForge/FML@908491d5e7ac26becdac938f38cc90d6b9d73ce1 Move LaunguageRegistry call above normal asset loading to allow resource packs to override mod's language systems.
+		MinecraftForge/FML@d13295e28113a1c310d5bbb90ebfe241fefabe02 Fix FMLAT manifest AccessTransformers, class loader fun!
+
+Build 1.7.10-10.13.0.1184:
+	darklime:
+		Changed exception message for duplicate enchantment ids to contain the
+		class path for both enchantments along with the enchantmnet id that has
+		been duplicated.
+
+Build 1.7.10-10.13.0.1183:
+	bspkrs:
+		Fixed missing assignment of constructor arg (thanks @Lunatrius)
+		
+		I must have edited this out when I was cleaning up my formatting commit spam.
+
+Build 1.7.10-10.13.0.1182:
+	vincent_a_lee:
+		Fix comment derp (+1 squashed commits)
+		
+		Squashed commits:
+		
+		[52c40bc] Fix experience orbs spawning at 32x coordinates clientside
+		
+		Add // FORGE comment
+		
+		Add // FORGE comment to clarify the purpose of the change
+
+Build 1.7.10-10.13.0.1181:
+	vincent_a_lee:
+		Fix chat opacity
+		
+		Add // FORGE comment
+		
+		As per convention, add // FORGE comment to clarify the purpose of the change
+
+Build 1.7.10-10.13.0.1180:
 	LexManos:
 		Updated FML:
 		MinecraftForge/FML@ab52901b8b47a525e2719cf280327e97bad7f91e Force preferIPv4Stack to true early in the load chain to combat netty loopback issues.
