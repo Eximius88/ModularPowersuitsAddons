@@ -6,7 +6,8 @@
 !/.gitattributes
 !/Changelog.txt
 !/README.md
-build/
+/build
 /eclipse
 /libs
 /.idea
+/.gradle
