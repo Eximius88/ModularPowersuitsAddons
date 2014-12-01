@@ -61,7 +61,7 @@ public class AppEngWirelessModule extends PowerModuleBase implements IRightClick
     @Override
     public void onRightClick(EntityPlayer player, World world, ItemStack item) {
 
-        AEApi.instance().registries().wireless().OpenWirelessTermainlGui(item, world, player);
+        AEApi.instance().registries().wireless().openWirelessTermainlGui(item, world, player);
     }
 
     @Override
