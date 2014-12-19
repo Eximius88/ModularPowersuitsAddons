@@ -1,0 +1,36 @@
+Made by users: Andrew2448
+Last edited on 6/25/13 8:51PM EST
+
+item.powerArmorComponent.componentSolarPanel.name =太阳能电池板
+item.powerArmorComponent.componentMagnet.name =磁体
+item.powerArmorComponent.componentComputerChip.name =电子芯片
+item.powerArmorComponent.componentLiquidNitrogen.name =液氮容器
+item.powerArmorComponent.componentRubberHose.name =绝缘橡胶管
+<<<<<<< HEAD
+item.powerArmorComponent.componentRawCarbon.name =生碳
+=======
+>>>>>>> 7c07ccff844f95d9e90237f1c812434cfd66d4bb
+
+module.portableCraftingTable.name =携带式合成台
+module.kineticGenerator.name =人体动能发电机
+module.solarGenerator.name =太阳能发电机
+module.thermalGenerator.name =热能发电机
+module.autoFeeder.name =自动喂食器
+module.magnet.name =磁体
+module.oreScanner.name =矿物扫描仪
+module.leafBlower.name =裁叶机
+module.mobRepulsor.name =怪物排斥器
+module.flintAndSteel.name =打火石
+module.clock.name =钟
+module.compass.name =指南针
+module.lightningSummoner.name =闪电召唤器
+module.waterTank.name =水缸
+module.euReader.name =EU电表
+module.treetap.name = 木龙头
+module.teMultimeter.name =TE表
+module.torchPlacer.name =火把放置器
+module.appengWireless.name =应用能源无线终端模块
+module.bucket.name =桶
+module.advSolarGenerator.name =高效率太阳能发电机
+module.nitrogenCoolingSystem.name =液氮冷却系统
+module.mechAssistance.name =机械辅助系统
