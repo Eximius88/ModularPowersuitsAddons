@@ -39,7 +39,7 @@ repositories {
 apply plugin: 'scala'
 apply plugin: 'forge'
 
-version = "1.7.10-904"
+version = "1.7.10-905"
 group= "andrew.powersuits.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "powersuitaddons"
 
